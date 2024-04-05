@@ -1,12 +1,12 @@
 import Box from "@mui/material/Box";
-import { ReactComponent as Nyt } from "../../assets/icons/NYT.svg";
-import { ReactComponent as Ideo } from "../../assets/icons/ideo.svg";
-import { ReactComponent as Upwork } from "../../assets/icons/upwork.svg";
-import { ReactComponent as Pwc } from "../../assets/icons/pwc.svg";
-import { ReactComponent as Discord } from "../../assets/icons/discord.svg";
-import { ReactComponent as Monday } from "../../assets/icons/monday.svg";
-import { ReactComponent as Ncr } from "../../assets/icons/ncr.svg";
-import { ReactComponent as Ted } from "../../assets/icons/ted.svg";
+import Nyt from "../../assets/icons/NYT.svg?react";
+import Ideo from "../../assets/icons/ideo.svg?react";
+import Upwork from "../../assets/icons/upwork.svg?react";
+import Pwc from "../../assets/icons/pwc.svg?react";
+import Discord from "../../assets/icons/discord.svg?react";
+import Monday from "../../assets/icons/monday.svg?react";
+import Ncr from "../../assets/icons/ncr.svg?react";
+import Ted from "../../assets/icons/ted.svg?react";
 
 const partners = [Nyt, Ideo, Upwork, Pwc, Discord, Monday, Ncr, Ted];
 
