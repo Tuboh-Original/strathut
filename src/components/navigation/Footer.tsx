@@ -1,5 +1,6 @@
 import Box from "@mui/material/Box";
 import StratButton from "../common/Button";
+import logo from "../../assets/icons/logoWhite.svg";
 
 const services = [
   "web design",
@@ -61,6 +62,13 @@ const Footer = () => {
             ))}
           </Box>
         </Box>
+      </Box>
+
+      <Box className="flex items-end justify-between h-16 border-t border-t-[#414141] w-full">
+        <span className="w-24">
+          <img src={logo} alt="Strathub white logo" />
+        </span>
+        <p className="text-xs text-white">© 2024 STRATHUT.Agency All rights reserved.</p>
       </Box>
     </Box>
   );
