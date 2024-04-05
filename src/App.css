@@ -1,0 +1,9 @@
+.about {
+  animation: moveSlideshow 12s linear infinite;
+}
+
+@keyframes moveSlideshow {
+  100% {
+    transform: translateX(-82%);
+  }
+}

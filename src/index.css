@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "GT Walsheim";
+  src: local("GT Walsheim Ultra Bold"), local("GTWalsheimProUltraBold"),
+    url("/fonts/GTWalsheim/GTWalsheimProUltraBold.OTF") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT Walsheim";
+  src: local("GT Walsheim Ultra Bold Oblique"), local("GTWalsheimProUltraBoldOblique"),
+    url("/fonts/GTWalsheim/GTWalsheimProUltraBoldOblique.OTF") format("opentype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "GT Walsheim";
+  src: local("GT Walsheim Black"), local("GTWalsheimProBlack"),
+    url("/fonts/GTWalsheim/GTWalsheimProBlack.OTF") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT Walsheim";
+  src: local("GT Walsheim Black Oblique"), local("GTWalsheimProBlackOblique"),
+    url("/fonts/GTWalsheim/GTWalsheimProBlackOblique.OTF") format("opentype");
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "GT Walsheim";
+  src: local("GT Walsheim Bold"), local("GTWalsheimProBold"),
+    url("/fonts/GTWalsheim/GTWalsheimProBold.OTF") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT Walsheim";
+  src: local("GT Walsheim Bold Oblique"), local("GTWalsheimProBoldOblique"),
+    url("/fonts/GTWalsheim/GTWalsheimProBoldOblique.OTF") format("opentype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "GT Walsheim";
+  src: local("GT Walsheim Medium"), local("GTWalsheimProMedium"),
+    url("/fonts/GTWalsheim/GTWalsheimProMedium.OTF") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT Walsheim";
+  src: local("GT Walsheim Medium Oblique"), local("GTWalsheimProMediumOblique"),
+    url("/fonts/GTWalsheim/GTWalsheimProMediumOblique.OTF") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "GT Walsheim";
+  src: local("GT Walsheim Regular"), local("GTWalsheimProRegular"),
+    url("/fonts/GTWalsheim/GTWalsheimProRegular.OTF") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT Walsheim";
+  src: local("GT Walsheim Regular Oblique"), local("GTWalsheimProRegularOblique"),
+    url("/fonts/GTWalsheim/GTWalsheimProRegularOblique.OTF") format("opentype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "GT Walsheim";
+  src: local("GT Walsheim Light"), local("GTWalsheimProLight"),
+    url("/fonts/GTWalsheim/GTWalsheimProLight.OTF") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT Walsheim";
+  src: local("GT Walsheim Light Oblique"), local("GTWalsheimProLightOblique"),
+    url("/fonts/GTWalsheim/GTWalsheimProLightOblique.OTF") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "GT Walsheim";
+  src: local("GT Walsheim Thin"), local("GTWalsheimProThin"),
+    url("/fonts/GTWalsheim/GTWalsheimProThin.OTF") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT Walsheim";
+  src: local("GT Walsheim Thin Oblique"), local("GTWalsheimProThinOblique"),
+    url("/fonts/GTWalsheim/GTWalsheimProThinOblique.OTF") format("opentype");
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "GT Walsheim";
+  src: local("GT Walsheim Ultra Light"), local("GTWalsheimProUltraLight"),
+    url("/fonts/GTWalsheim/GTWalsheimProUltraLight.OTF") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GT Walsheim";
+  src: local("GT Walsheim Ultra Light Oblique"), local("GTWalsheimProUltraLightOblique"),
+    url("/fonts/GTWalsheim/GTWalsheimProUltraLightOblique.OTF") format("opentype");
+  font-weight: 100;
+  font-style: italic;
+}
+
+
+:root {
+  font-family: "GT Walsheim", sans-serif;
+  line-height: 1.5;
+  font-weight: normal;
+  /* max-width: 1280px; */
+  margin: 0;
+
+  color-scheme: light dark;
+  color: rgb(255, 255, 255);
+  background-color: #111111;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
