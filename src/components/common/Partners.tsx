@@ -7,7 +7,6 @@ import Discord from "../../assets/icons/discord.svg?react";
 import Monday from "../../assets/icons/monday.svg?react";
 import Ncr from "../../assets/icons/ncr.svg?react";
 import Ted from "../../assets/icons/ted.svg?react";
-import Dropbox from "../../assets/icons/dropbox.svg?react";
 
 const partners = [Nyt, Ideo, Upwork, Pwc, Discord, Monday, Ncr, Ted];
 
