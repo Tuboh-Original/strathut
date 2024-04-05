@@ -101,7 +101,7 @@ const Homepage = () => {
       <Services />
 
       {/* Our Partners */}
-      <Partners />
+      {/* <Partners /> */}
 
       <Footer />
     </Box>
