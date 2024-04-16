@@ -90,7 +90,7 @@ const Services = () => {
       <Box className="grid grid-cols-1 sm:grid-cols-2 gap-8 w-full items-center">
         <Box className={`flex flex-col gap-16`}>
           {services?.map((serv, ind) => (
-            <Box className={`flex flex-col gap-4`}>
+            <Box key={ind} className={`flex flex-col gap-4`}>
               <Box
                 component={"button"}
                 onClick={() => {

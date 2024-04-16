@@ -9,6 +9,7 @@ import AppLayout from "./Layouts/AppLayout";
 import Homepage from "./pages/Homepage";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import AboutPage from "./pages/About";
 
 gsap.registerPlugin(useGSAP);
 
@@ -33,7 +34,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<AppLayout />}>
-            <Route index element={<Homepage />} />
+            <Route index path="/" element={<Homepage />} />
+            <Route path="/about" element={<AboutPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

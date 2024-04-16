@@ -68,7 +68,7 @@ const Footer = () => {
         <span className="w-24">
           <img src={logo} alt="Strathub white logo" />
         </span>
-        <p className="text-xs text-white">© 2024 STRATHUT.Agency All rights reserved.</p>
+        <p className="text-xs text-white uppercase">© 2024 STRATHUT.Agency All rights reserved.</p>
       </Box>
     </Box>
   );
