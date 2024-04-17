@@ -7,7 +7,7 @@ const StudyCard = ({ image }) => {
   return (
     <Box className="p-8 border rounded-3xl border-white30">
       <Box
-        className="w-full h-[36rem] rounded-2xl duration-500"
+        className="w-full h-[42rem] rounded-2xl duration-500"
         style={{
           backgroundImage: `url(${image})`,
           backgroundSize: "cover",

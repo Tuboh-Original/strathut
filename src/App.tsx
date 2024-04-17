@@ -5,7 +5,6 @@ import {
 } from "@mui/material/styles";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import "./App.css";
-import "react-phone-number-input/style.css";
 import AppLayout from "./Layouts/AppLayout";
 import Homepage from "./pages/Homepage";
 import gsap from "gsap";
