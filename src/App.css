@@ -7,3 +7,13 @@
     transform: translateX(-82%);
   }
 }
+
+.aboutOpp {
+  animation: moveSlideshowOpp 12s linear infinite;
+}
+
+@keyframes moveSlideshowOpp {
+  100% {
+    transform: translateX(82%);
+  }
+}

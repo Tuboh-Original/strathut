@@ -12,12 +12,12 @@ const links: { title: string; link: string }[] = [
 
 const Header = () => {
   return (
-    <Box className="absolute left-0 right-0 top-0 py-6 text-white w-full flex justify-center">
-      <nav className="max-w-[1440px] px-4 md:px-10 w-full flex items-center justify-between">
+    <Box className="absolute left-0 right-0 top-0 text-white w-full flex justify-center">
+      <nav className="max-w-[1440px] px-4 md:px-10 py-6 w-full flex items-center justify-between bg-[#111111]">
         <Box className="flex gap-16 items-center">
-          <span className="w-32">
-            <img src={logo} alt="Strathub white logo" />
-          </span>
+          <Link underline="none" href={"/"} className="w-32">
+            <img src={logo} alt="Strathut white logo" />
+          </Link>
           <Box className="flex items-center gap-4 mt-4">
             {links?.map((link, ind) => (
               <Link

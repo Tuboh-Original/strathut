@@ -71,7 +71,6 @@ const Services = () => {
 
   function restartTimer() {
     let newService = selectedService + 1;
-    console.log(newService);
     if (newService > 3) newService = 0;
     setSelectedService(-1);
     setSelectedService(newService);

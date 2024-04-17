@@ -2,7 +2,6 @@ import Box from "@mui/material/Box";
 import PlayArrow from "@mui/icons-material/PlayArrow";
 import vidPH from "../../assets/images/videoPlaceholder.png";
 
-
 const links = [
   "UX DESIGN",
   "BRAND DESIGN",
@@ -61,7 +60,7 @@ const About = () => {
         </Box>
       </Box>
       <Box className="absolute bottom-44 right-0 left-0 bg-secondary py-2 overflow-clip -rotate-12">
-        <Box className="about flex gap-8 text-clip text-nowrap">
+        <Box className="about flex gap-8 text-clip text-nowrap overflow-visible">
           {links?.map((link, ind) => (
             <p
               key={ind}
@@ -75,6 +74,5 @@ const About = () => {
     </Box>
   );
 };
-
 
 export default About;
