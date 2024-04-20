@@ -1,8 +1,13 @@
 import Box from "@mui/material/Box";
 import East from "@mui/icons-material/East";
 import { useNavigate } from "react-router-dom";
+import React from "react";
 
-const StudyCard = ({ image }) => {
+type StudyCardProps = {
+  image: string;
+};
+
+const StudyCard: React.FC<StudyCardProps> = ({ image }) => {
   const navigate = useNavigate();
   return (
     <Box className="p-8 border rounded-3xl border-white30">

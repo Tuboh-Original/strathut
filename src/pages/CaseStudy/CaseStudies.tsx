@@ -4,6 +4,7 @@ import freepik from "../../assets/images/tubohFreepik.png";
 import StudyCard from "../../components/common/StudyCard";
 import Partners from "../../components/common/Partners";
 import Footer from "../../components/navigation/Footer";
+import React from "react";
 
 const CaseStudies = () => {
   return (
@@ -25,12 +26,12 @@ const CaseStudies = () => {
       </Box>
       <Box className="w-full flex flex-col items-center">
         <Box className="max-w-[1440px] flex flex-col items-center w-full">
-          <Box className="grid grid-cols-2 gap-x-4 gap-y-24 py-28 2xl:py-36 px-4 md:px-12">
+          <Box className="grid grid-cols-2 gap-x-4 gap-y-24 py-28 2xl:py-36 px-4 md:px-12 w-full">
             {[0, 1, 2].map((ind) => (
-              <>
+              <React.Fragment key={ind}>
                 <StudyCard image={mockup} />
                 <StudyCard image={freepik} />
-              </>
+              </React.Fragment>
             ))}
           </Box>
         </Box>

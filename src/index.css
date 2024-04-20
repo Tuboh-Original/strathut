@@ -12,8 +12,10 @@
 
 @font-face {
   font-family: "GT Walsheim";
-  src: local("GT Walsheim Ultra Bold Oblique"), local("GTWalsheimProUltraBoldOblique"),
-    url("/fonts/GTWalsheim/GTWalsheimProUltraBoldOblique.OTF") format("opentype");
+  src: local("GT Walsheim Ultra Bold Oblique"),
+    local("GTWalsheimProUltraBoldOblique"),
+    url("/fonts/GTWalsheim/GTWalsheimProUltraBoldOblique.OTF")
+      format("opentype");
   font-weight: 900;
   font-style: italic;
 }
@@ -76,7 +78,8 @@
 
 @font-face {
   font-family: "GT Walsheim";
-  src: local("GT Walsheim Regular Oblique"), local("GTWalsheimProRegularOblique"),
+  src: local("GT Walsheim Regular Oblique"),
+    local("GTWalsheimProRegularOblique"),
     url("/fonts/GTWalsheim/GTWalsheimProRegularOblique.OTF") format("opentype");
   font-weight: normal;
   font-style: italic;
@@ -124,18 +127,18 @@
 
 @font-face {
   font-family: "GT Walsheim";
-  src: local("GT Walsheim Ultra Light Oblique"), local("GTWalsheimProUltraLightOblique"),
-    url("/fonts/GTWalsheim/GTWalsheimProUltraLightOblique.OTF") format("opentype");
+  src: local("GT Walsheim Ultra Light Oblique"),
+    local("GTWalsheimProUltraLightOblique"),
+    url("/fonts/GTWalsheim/GTWalsheimProUltraLightOblique.OTF")
+      format("opentype");
   font-weight: 100;
   font-style: italic;
 }
-
 
 :root {
   font-family: "GT Walsheim", sans-serif;
   line-height: 1.5;
   font-weight: normal;
-  /* max-width: 1280px; */
   margin: 0;
 
   color-scheme: light dark;
@@ -146,4 +149,23 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body, #root {
+  /* -ms-overflow-style: none;
+  scrollbar-width: none;
+  scrollbar-color: rgba(0, 0, 0, 0); */
+}
+
+body::-webkit-scrollbar, #root::-webkit-scrollbar {
+  display: none;
+}
+
+.download {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scrollbar-color: rgba(0, 0, 0, 0);
+}
+.download::-webkit-scrollbar {
+  display: none;
 }

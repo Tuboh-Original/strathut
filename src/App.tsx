@@ -13,6 +13,12 @@ import AboutPage from "./pages/About";
 import CaseStudies from "./pages/CaseStudy/CaseStudies";
 import CaseStudy from "./pages/CaseStudy/CaseStudy";
 import Contact from "./pages/Contact";
+import NewProject from "./pages/NewProject";
+import WebDev from "./pages/Services/WDev";
+import UDesign from "./pages/Services/UDes";
+import AppDev from "./pages/Services/ADev";
+import ProDev from "./pages/Services/PDev";
+import BrandDev from "./pages/Services/BDev";
 
 gsap.registerPlugin(useGSAP);
 
@@ -28,29 +34,6 @@ const theme = createTheme({
   typography: {
     fontFamily: "'GT Walsheim', sans-serif;",
   },
-  components: {
-    // MuiInput: {
-    //   styleOverrides: {
-    //     root: {
-    //       "& label.MuiFocused": {
-    //         color: "#FFFFFF"
-    //       },
-    //       "&::before": {
-    //         color: "rgba(255, 255, 255, 0.50)",
-    //         borderBottom: "1px solid rgba(255, 255, 255, 0.50)",
-    //       },
-    //       "&:hover:not(.Mui-disabled, .Mui-error):before": {
-    //         color: "rgba(255, 255, 255, 0.50)",
-    //         borderBottom: "1px solid rgb(255, 255, 255)",
-    //       },
-    //       "&.Mui-focused:after": {
-    //         color: "rgb(255, 255, 255)",
-    //         borderBottom: "2px solid rgb(255, 255, 255)",
-    //       },
-    //     },
-    //   },
-    // },
-  },
 });
 
 function App() {
@@ -64,6 +47,12 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/case-study" element={<CaseStudy />} />
+            <Route path="/new-project" element={<NewProject />} />
+            <Route path="/web-development" element={<WebDev />} />
+            <Route path="/app-development" element={<AppDev />} />
+            <Route path="/product-development" element={<ProDev />} />
+            <Route path="/brand-development" element={<BrandDev />} />
+            <Route path="/ui-ux-design" element={<UDesign />} />
           </Route>
         </Routes>
       </BrowserRouter>

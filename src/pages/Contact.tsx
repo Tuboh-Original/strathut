@@ -1,6 +1,4 @@
 import Box from "@mui/material/Box";
-import InputAdornment from "@mui/material/InputAdornment";
-import MuiPhoneNumber from "material-ui-phone-number-2";
 
 import Zoom from "../assets/icons/zoom.svg?react";
 import Slack from "../assets/icons/slack.svg?react";
@@ -89,6 +87,7 @@ const Contact = () => {
                   variant="standard"
                   countryCodeEditable={false}
                   enableLongNumbers={true}
+                  onChange={() => {}}
                 />
                 <StratTextField
                   label="Message"
@@ -98,7 +97,6 @@ const Contact = () => {
                   }}
                   variant="standard"
                   multiline
-                  rows={3}
                   maxRows={3}
                 />
                 <StratButton className="mt-24 mx-auto border-[6px] border-opacity-40 border-gray-500 backdrop-blur-[15px]">
