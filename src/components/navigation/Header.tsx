@@ -5,7 +5,7 @@ import logo from "../../assets/icons/logoWhite.svg";
 import East from "@mui/icons-material/East";
 import { useNavigate } from "react-router-dom";
 import React from "react";
-import Menu, { MenuProps } from "@mui/material/Menu";
+import Menu from "@mui/material/Menu";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import MenuItem from "@mui/material/MenuItem";

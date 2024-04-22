@@ -2,7 +2,6 @@ import {
   createTheme,
   ThemeProvider,
   responsiveFontSizes,
-  duration,
 } from "@mui/material/styles";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import "./App.css";
@@ -45,8 +44,8 @@ function App() {
   useEffect(() => {
     AOS.init({
       easing: "ease-in-out", // default easing for AOS animations
-      once: "false", // whether animation should happen only once - while scrolling down
-      mirror: "true",
+      once: false, // whether animation should happen only once - while scrolling down
+      mirror: true,
       duration: 1000,
     });
     AOS.refresh();

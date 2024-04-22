@@ -56,17 +56,18 @@ const services = [
   },
 ];
 
-function handleMouseMove(event) {
+function handleMouseMove(event: React.MouseEvent) {
   // 👇️ Get the mouse position relative to the element
+  const element = event.target as HTMLInputElement;
   return {
-    x: event?.clientX - event?.target.offsetLeft,
-    y: event?.pageY - event?.target.offsetTop,
+    x: event?.clientX - element?.offsetLeft,
+    y: event?.pageY - element.offsetTop,
   };
 }
 
 const Services = () => {
   const [selectedService, setSelectedService] = React.useState(0);
-  const [position, setPosition] = React.useState(null);
+  const [position, setPosition] = React.useState("");
 
   return (
     <Box className="py-28 2xl:py-36 px-4 md:px-12 flex flex-col items-center bg-gradientPrimary2">
@@ -142,17 +143,18 @@ const Services = () => {
             //   backgroundPosition: "center",
             // }}
             onMouseEnter={(e) => {
-              if (handleMouseMove(e).x < e.target?.clientWidth / 2) {
-                handleMouseMove(e).y < e.target?.clientHeight / 2
+              const element = e.target as HTMLInputElement;
+              if (handleMouseMove(e).x < element?.clientWidth / 2) {
+                handleMouseMove(e).y < element?.clientHeight / 2
                   ? setPosition("top-left")
                   : setPosition("bottom-left");
               } else {
-                handleMouseMove(e).y < e.target?.clientHeight / 2
+                handleMouseMove(e).y < element?.clientHeight / 2
                   ? setPosition("top-right")
                   : setPosition("bottom-right");
               }
             }}
-            onMouseLeave={() => setPosition(null)}
+            onMouseLeave={() => setPosition("")}
           >
             <img
               src={services[selectedService]?.image}

@@ -21,20 +21,22 @@ const services = [
   { title: "others", descr: "Others" },
 ];
 
+const initOptions: any = {
+  uDesign: false,
+  proManagement: false,
+  branding: false,
+  softDev: false,
+  proDev: false,
+  wDesign: false,
+  gDesign: false,
+  others: false,
+  otherText: "",
+};
+
 const NewProject = () => {
   const [page, setPage] = useState(1);
 
-  const [options, setOptions] = useState({
-    uDesign: false,
-    proManagement: false,
-    branding: false,
-    softDev: false,
-    proDev: false,
-    wDesign: false,
-    gDesign: false,
-    others: false,
-    otherText: "",
-  });
+  const [options, setOptions] = useState(initOptions);
 
   function handleNext() {
     if (page < 3) {
@@ -45,10 +47,11 @@ const NewProject = () => {
   }
   // const {}
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: React.SyntheticEvent<Element, Event>) => {
+    const element = event.currentTarget as HTMLInputElement;
     setOptions({
       ...options,
-      [event.target.name]: event.target.checked,
+      [element?.name]: element?.checked,
     });
     console.log(options);
   };
@@ -181,7 +184,7 @@ const NewProject = () => {
                         name={service?.title}
                         labelPlacement="start"
                         checked={options[service?.title]}
-                        onChange={handleChange}
+                        onChange={(e) => handleChange(e)}
                         className={`flex justify-between !ms-0 rounded-s-full rounded-e-full border px-4 text-lg ${
                           options[service?.title]
                             ? "border-secondary text-secondary"
