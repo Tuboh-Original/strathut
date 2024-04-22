@@ -2,6 +2,7 @@ import {
   createTheme,
   ThemeProvider,
   responsiveFontSizes,
+  duration,
 } from "@mui/material/styles";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import "./App.css";
@@ -9,6 +10,9 @@ import AppLayout from "./Layouts/AppLayout";
 import Homepage from "./pages/Homepage";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 import AboutPage from "./pages/About";
 import CaseStudies from "./pages/CaseStudy/CaseStudies";
 import CaseStudy from "./pages/CaseStudy/CaseStudy";
@@ -19,6 +23,7 @@ import UDesign from "./pages/Services/UDes";
 import AppDev from "./pages/Services/ADev";
 import ProDev from "./pages/Services/PDev";
 import BrandDev from "./pages/Services/BDev";
+import { useEffect } from "react";
 
 gsap.registerPlugin(useGSAP);
 
@@ -37,6 +42,15 @@ const theme = createTheme({
 });
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      easing: "ease-in-out", // default easing for AOS animations
+      once: "false", // whether animation should happen only once - while scrolling down
+      mirror: "true",
+      duration: 1000,
+    });
+    AOS.refresh();
+  }, []);
   return (
     <ThemeProvider theme={responsiveFontSizes(theme)}>
       <BrowserRouter>

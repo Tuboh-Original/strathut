@@ -1,4 +1,5 @@
 import Box from "@mui/material/Box";
+import { motion } from "framer-motion";
 import Nyt from "../../assets/icons/NYT.svg";
 import Ideo from "../../assets/icons/ideo.svg";
 import Upwork from "../../assets/icons/upwork.svg";
@@ -93,14 +94,28 @@ const Partners = () => {
             <p className="text-2rem md:text-[3rem] lg:text-[4rem] max-w-[80%] md:max-w-[30%] leading-2.5rem md:leading-[4rem] lg:leading-[4.5rem] font-medium">
               Businesses we have supported
             </p>
-            <p className="text-textBody text-3xl max-w-[95%] md:max-w-[45%]">
+            <p
+              className="text-textBody text-3xl max-w-[95%] md:max-w-[45%]"
+              data-aos="fade-up"
+            >
               At Strathut, we've empowered diverse clients – from startups to
               established enterprises – with tailored digital solutions, driving
               tangible results and surpassing their goals.
             </p>
           </Box>
           <Box className="w-screen overflow-clip">
-            <Box className="about flex gap-14 items-center overflow-visible">
+            <motion.div
+              animate={{
+                x: ["0%", "-100%"],
+                transition: {
+                  ease: "linear",
+                  duration: 15,
+                  repeat: Infinity,
+                },
+              }}
+              className="flex gap-14 items-center overflow-visible"
+            >
+              {/* <Box className="about flex gap-14 items-center overflow-visible"> */}
               {partners?.map((partner, ind) => (
                 <img key={ind} src={partner} width={"100%"} height={"auto"} />
                 // <Box
@@ -114,7 +129,8 @@ const Partners = () => {
                 //   }}
                 // ></Box>
               ))}
-            </Box>
+              {/* </Box> */}
+            </motion.div>
           </Box>
         </Box>
       </Box>

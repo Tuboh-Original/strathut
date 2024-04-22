@@ -3,11 +3,12 @@ import product from "../../assets/images/product.png";
 import StratButton from "../../components/common/Button";
 import { useNavigate } from "react-router-dom";
 import Footer from "../../components/navigation/Footer";
+import bg from "../../assets/images/studyBg.png";
 
 const CaseStudy = () => {
   const navigate = useNavigate();
   return (
-    <Box className="flex flex-col w-full mt-12">
+    <Box className="flex flex-col w-full mt-12 gap-20">
       {/* Hero */}
       <Box className="w-full pt-48 pb-32 bg-gradientPrimary1 flex flex-col items-center">
         <Box className="max-w-[1440px] flex flex-col items-center">
@@ -131,6 +132,26 @@ const CaseStudy = () => {
             </StratButton>
           </Box>
         </Box>
+      </Box>
+      <Box
+        className="flex flex-col gap-8 h-[36rem] relative items-center justify-center"
+        style={{
+          backgroundImage: `linear-gradient(0deg, rgba(0,0,0,0.50) 0%, rgba(0,0,0,0.50) 100%), url(${bg})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+        }}
+      >
+        <p className="uppercase font-light text-lg text-white">
+          NEXT CASE STUDY
+        </p>
+        <p className="font-medium text-6xl">Tuboh</p>
+        <StratButton
+          // onButton={() => navigate("/case-studies")}
+          className="border-[6px] border-opacity-40 border-gray-500 backdrop-blur-[15px] hover:cursor-pointer"
+        >
+          View Case Study
+        </StratButton>
       </Box>
       <Footer />
     </Box>

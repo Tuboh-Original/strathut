@@ -56,8 +56,17 @@ const services = [
   },
 ];
 
+function handleMouseMove(event) {
+  // 👇️ Get the mouse position relative to the element
+  return {
+    x: event?.clientX - event?.target.offsetLeft,
+    y: event?.pageY - event?.target.offsetTop,
+  };
+}
+
 const Services = () => {
   const [selectedService, setSelectedService] = React.useState(0);
+  const [position, setPosition] = React.useState(null);
 
   return (
     <Box className="py-28 2xl:py-36 px-4 md:px-12 flex flex-col items-center bg-gradientPrimary2">
@@ -115,14 +124,42 @@ const Services = () => {
             ))}
           </Box>
           <Box
-            className="w-full h-[48rem] rounded-lg transition-all duration-1000"
-            style={{
-              backgroundImage: `url(${services[selectedService]?.image})`,
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
+            className={`w-full h-[48rem] rounded-lg transition-all duration-1000 flex items-center ${
+              position === "top-left"
+                ? "hover:ps-16 hover:pt-16"
+                : position === "top-right"
+                ? "hover:pe-16 hover:pt-16"
+                : position === "bottom-right"
+                ? "hover:pe-16 hover:pb-16"
+                : position === "bottom-left"
+                ? "hover:ps-16 hover:pb-16"
+                : "hover:p-0"
+            }`}
+            // style={{
+            //   backgroundImage: `url(${services[selectedService]?.image})`,
+            //   backgroundSize: "cover",
+            //   backgroundRepeat: "no-repeat",
+            //   backgroundPosition: "center",
+            // }}
+            onMouseEnter={(e) => {
+              if (handleMouseMove(e).x < e.target?.clientWidth / 2) {
+                handleMouseMove(e).y < e.target?.clientHeight / 2
+                  ? setPosition("top-left")
+                  : setPosition("bottom-left");
+              } else {
+                handleMouseMove(e).y < e.target?.clientHeight / 2
+                  ? setPosition("top-right")
+                  : setPosition("bottom-right");
+              }
             }}
-          ></Box>
+            onMouseLeave={() => setPosition(null)}
+          >
+            <img
+              src={services[selectedService]?.image}
+              height={"100%"}
+              width={"90%"}
+            />
+          </Box>
         </Box>
         <Box className="flex flex-col w-full">
           <Box className="w-full">

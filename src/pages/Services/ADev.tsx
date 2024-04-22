@@ -1,8 +1,17 @@
 import Box from "@mui/material/Box";
+import { motion } from "framer-motion";
+
 import mockup from "../../assets/images/mockup.png";
 import Services from "../../components/common/Services";
 import Partners from "../../components/common/Partners";
 import Footer from "../../components/navigation/Footer";
+import Port1 from "../../assets/images/portfolio1.png";
+import Port2 from "../../assets/images/portfolio2.png";
+import Port3 from "../../assets/images/portfolio3.png";
+import Port4 from "../../assets/images/portfolio4.png";
+import Port5 from "../../assets/images/portfolio5.png";
+import Port6 from "../../assets/images/portfolio6.png";
+import Port7 from "../../assets/images/portfolio7.png";
 
 const Processes = [
   {
@@ -35,6 +44,35 @@ const Processes = [
     title: "Post-Launch Support & Maintenance",
     desc: "Our support extends beyond launch day, as we provide ongoing maintenance and updates to keep the app secure, up-to-date, and optimized for performance. We also monitor user feedback and analytics to inform future enhancements and iterations, ensuring your app remains competitive and meets evolving user needs.",
   },
+];
+
+const Slides = [
+  Port1,
+  Port2,
+  Port3,
+  Port4,
+  Port1,
+  Port2,
+  Port3,
+  Port4,
+  Port1,
+  Port2,
+  Port3,
+  Port4,
+];
+const Slides2 = [
+  Port4,
+  Port5,
+  Port6,
+  Port7,
+  Port4,
+  Port5,
+  Port6,
+  Port7,
+  Port4,
+  Port5,
+  Port6,
+  Port7,
 ];
 
 const AppDev = () => {
@@ -86,6 +124,62 @@ const AppDev = () => {
           App Development <br />
           Portfolios
         </p>
+        <Box className="flex flex-col gap-8">
+          <Box className="w-screen overflow-clip">
+            <motion.div
+              animate={{
+                x: ["0%", "-100%"],
+                transition: {
+                  ease: "linear",
+                  duration: 15,
+                  repeat: Infinity,
+                },
+              }}
+              className="flex gap-14 items-center overflow-visible"
+            >
+              {Slides?.map((slide, ind) => (
+                // <img key={ind} src={slide} width={"100%"} height={"auto"} />
+                <Box
+                  key={ind}
+                  className="min-w-[35rem] h-[35rem] rounded-3xl"
+                  style={{
+                    backgroundImage: `url(${slide})`,
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
+                  }}
+                ></Box>
+              ))}
+            </motion.div>
+          </Box>
+          <Box className="w-screen overflow-clip">
+            <motion.div
+              animate={{
+                x: ["-100%", "0%"],
+                transition: {
+                  ease: "linear",
+                  duration: 15,
+                  repeat: Infinity,
+                },
+              }}
+              className="flex gap-14 items-center overflow-visible"
+            >
+              {Slides2?.map((slide, ind) => (
+                // <img key={ind} src={slide} width={"100%"} height={"auto"} />
+                <Box
+                  key={ind}
+                  className="min-w-[35rem] h-[35rem] rounded-3xl"
+                  style={{
+                    backgroundImage: `url(${slide})`,
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
+                  }}
+                ></Box>
+              ))}
+            </motion.div>
+          </Box>
+        </Box>
       </Box>
       <Services />
       <Partners />

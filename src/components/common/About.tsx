@@ -38,7 +38,7 @@ const About = () => {
         <Box className="py-28 2xl:py-36 px-4 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center relative overflow-clip">
           <Box className="flex flex-col gap-10">
             <p className="text-7xl font-medium">About Strathut</p>
-            <p className="text-lg text-textBody">
+            <p data-aos="fade-up" className="text-lg text-textBody">
               At Strathut, we're more than just a digital marketing agency;
               we're your strategic partner in navigating the ever-evolving
               digital landscape. With a focus on innovation, creativity, and
