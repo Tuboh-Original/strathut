@@ -35,25 +35,27 @@ const Processes = [
 
 const Process = () => {
   return (
-    <Box className="w-full py-28 2xl:py-36 px-4 md:px-12 flex flex-col gap-24 items-center">
-      <Box className="max-w-[1440px] flex flex-col gap-24 items-center">
+    <Box className="w-full py-16 sm:py-28 2xl:py-36 px-4 md:px-12 flex flex-col gap-16 items-center">
+      <Box className="max-w-[1440px] flex flex-col gap-16 items-center">
         <Box className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <p className="text-7xl font-medium">Our Process</p>
-          <p className="text-3xl text-textBody leading-[2.75rem]">
+          <p className="text-7xl font-medium">
+            Our Process
+          </p>
+          <p className="text-2xl sm:text-3xl text-textBody sm:px-20 leading-6 sm:leading-[2.75rem]">
             At Strathut, we follow a streamlined process to ensure the success
             of every client project
           </p>
         </Box>
-        <Box className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-24 w-full">
+        <Box className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-16 sm:gap-y-24 w-full">
           {Processes?.map((serv, ind) => (
             <Box key={ind} className={`flex flex-col gap-3`}>
               <Box
                 className={`flex gap-2 items-center hover:cursor-pointer hover:text-secondary`}
               >
-                <p className={`text-secondary text-4xl font-bold`}>
+                <p className={`text-secondary text-2xl sm:text-4xl font-bold`}>
                   {serv?.id}
                 </p>
-                <p className={`font-semibold text-6xl text-secondary`}>
+                <p className={`font-semibold text-4xl sm:text-6xl text-secondary`}>
                   {serv?.title}
                 </p>
               </Box>

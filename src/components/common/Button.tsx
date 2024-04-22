@@ -17,7 +17,7 @@ const StratButton: React.FC<StratButtonProps> = ({
   <button
     onClick={onButton}
     type={type}
-    className={`bg-white text-[#111111] font-medium rounded-e-full rounded-s-full text-2xl py-4 px-6 gap-2 flex items-center w-fit normal-case ${className}`}
+    className={`bg-white text-[#111111] font-medium rounded-e-full rounded-s-full text-xl sm:text-2xl p-4 sm:py-4 sm:px-6 gap-2 flex items-center w-fit normal-case ${className}`}
   >
     <span>{children}</span>
     <East />

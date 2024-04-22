@@ -70,11 +70,11 @@ const Services = () => {
   const [position, setPosition] = React.useState("");
 
   return (
-    <Box className="py-28 2xl:py-36 px-4 md:px-12 flex flex-col items-center bg-gradientPrimary2">
-      <Box className="max-w-[1440px] flex flex-col gap-24 items-center">
-        <p className="text-7xl font-medium w-full">Our Services</p>
-        <Box className="grid grid-cols-1 sm:grid-cols-2 gap-20 w-full items-center">
-          <Box className={`flex flex-col gap-16`}>
+    <Box className="py-16 sm:py-28 2xl:py-36 px-4 md:px-12 flex flex-col items-center bg-gradientPrimary2 w-full">
+      <Box className="max-w-[1440px] flex flex-col gap-10 sm:gap-16 items-center w-full">
+        <p className="text-5xl sm:text-7xl font-medium w-full">Our Services</p>
+        <Box className="grid grid-cols-1 sm:grid-cols-2 gap-12 sm:gap-20 w-full items-center">
+          <Box className={`flex flex-col gap-10 sm:gap-16`}>
             {services?.map((serv, ind) => (
               <Box key={ind} className={`flex flex-col gap-4`}>
                 <Box
@@ -90,14 +90,14 @@ const Services = () => {
                   }`}
                 >
                   <p
-                    className={`text-secondary text-4xl font-bold transition-all duration-700 ease-in-out ${
+                    className={`text-secondary text-2xl sm:text-4xl font-bold transition-all duration-700 ease-in-out ${
                       selectedService === ind
                         ? "inline-block opacity-1"
                         : "opacity-0 hidden"
                     }`}
                   >{`0${ind + 1}`}</p>
                   <p
-                    className={`font-semibold text-6xl transition-all duration-700 ease-in-out ${
+                    className={`font-semibold text-4xl sm:text-6xl transition-all duration-700 ease-in-out ${
                       selectedService === ind
                         ? "text-secondary"
                         : "text-textBody"
@@ -125,7 +125,7 @@ const Services = () => {
             ))}
           </Box>
           <Box
-            className={`w-full h-[48rem] rounded-lg transition-all duration-1000 flex items-center ${
+            className={`w-full h-fit sm:h-[48rem] rounded-lg transition-all duration-1000 flex items-center ${
               position === "top-left"
                 ? "hover:ps-16 hover:pt-16"
                 : position === "top-right"
@@ -159,7 +159,7 @@ const Services = () => {
             <img
               src={services[selectedService]?.image}
               height={"100%"}
-              width={"90%"}
+              width={"95%"}
             />
           </Box>
         </Box>
@@ -167,7 +167,7 @@ const Services = () => {
           <Box className="w-full">
             <img src={quote} alt="Quote" width={"30rem"} height={"auto"} />
           </Box>
-          <p className="text-8xl leading-[6rem]">
+          <p className="text-3xl sm:text-8xl leading-10 sm:leading-[6rem] w-full">
             The team's dedication, creativity, and attention to detail have
             surpassed our expectations, and we couldn't be happier with the
             results.

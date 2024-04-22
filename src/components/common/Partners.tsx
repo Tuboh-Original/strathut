@@ -88,14 +88,14 @@ const Partners = () => {
   return (
     <Box className="w-full overflow-clip">
       <Box className="max-w-[1440px] flex flex-col items-center mx-auto">
-        <Box className="py-28 2xl:py-36 flex flex-col items-center gap-12 overflow-clip">
-          <Box className="px-4 md:px-12 flex flex-col items-center text-center gap-12">
+        <Box className="py-16 sm:py-28 2xl:py-36 flex flex-col items-center gap-12 overflow-clip">
+          <Box className="px-4 md:px-12 flex flex-col items-center text-center gap-4 sm:gap-12">
             <p className="text-textBody uppercase text-lg">our partners</p>
-            <p className="text-2rem md:text-[3rem] lg:text-[4rem] max-w-[80%] md:max-w-[30%] leading-2.5rem md:leading-[4rem] lg:leading-[4.5rem] font-medium">
+            <p className="text-[2rem] md:text-[3rem] lg:text-[4rem] max-w-[80%] md:max-w-[30%] leading-2.5rem md:leading-[4rem] lg:leading-[4.5rem] font-medium">
               Businesses we have supported
             </p>
             <p
-              className="text-textBody text-3xl max-w-[95%] md:max-w-[45%]"
+              className="text-textBody text-2xl sm:text-3xl max-w-[95%] md:max-w-[45%]"
               data-aos="fade-up"
             >
               At Strathut, we've empowered diverse clients – from startups to

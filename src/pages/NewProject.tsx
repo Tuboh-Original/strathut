@@ -59,31 +59,31 @@ const NewProject = () => {
   return (
     <Box className="flex flex-col w-full">
       <Box className="flex flex-col items-center bg-gradientPrimary2 overflow-clip">
-        <Box className="max-w-[1440px] flex flex-col items-center py-28 2xl:py-36 px-4 md:px-12 gap-24">
+        <Box className="max-w-[1440px] flex flex-col items-center py-16 sm:py-28 2xl:py-36 px-4 md:px-12 gap-4 sm:gap-6 lg:gap-16 2xl:gap-16">
           <Box className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-12">
-            <p className="text-7xl font-medium">
+            <p className="text-6xl sm:text-7xl font-medium">
               Start a project with Strathut
             </p>
-            <p className="text-3xl text-textBody leading-[2.75rem]">
+            <p className="text-2xl sm:text-3xl text-textBody leading-7 sm:leading-[2.75rem] max-w-[95%] sm:max-w-[100%]">
               Ready to create progress together? Tell us a little about your
               project and we’ll connect with you within 24 hours.
             </p>
           </Box>
-          <Box className="flex flex-col gap-16 my-10 md:my-16 mx-24 md:mx-48 lg:mx-80">
+          <Box className="flex flex-col gap-16 my-10 md:my-16 mx-4 sm:mx-12 md:mx-48 lg:mx-80">
             <Box className="flex flex-col gap-4">
               <Box className="grid grid-cols-3 gap-5 w-full">
                 {[1, 2, 3].map((ind) => (
                   <Box
                     key={ind}
-                    className={`h-[0.2rem] rounded-s-full rounded-e-full w-44 ${
+                    className={`h-[0.2rem] rounded-s-full rounded-e-full w-20 md:w-44 ${
                       page >= ind ? "bg-secondary" : "bg-secondary15"
                     }`}
                   ></Box>
                 ))}
               </Box>
               <Box className="flex gap-2">
-                <p className="font-bold text-3xl">0{page}</p>
-                <p className="font-medium text-3xl">
+                <p className="font-bold text-2xl sm:text-3xl">0{page}</p>
+                <p className="font-medium text-2xl sm:text-3xl">
                   {page === 1
                     ? "Contact Information"
                     : page === 2
@@ -95,7 +95,7 @@ const NewProject = () => {
             <Box component={"form"} className="flex flex-col gap-8">
               {page === 1 ? (
                 <React.Fragment>
-                  <Box className="grid grid-cols-2 gap-8">
+                  <Box className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                     <StratTextField
                       label="First Name"
                       placeholder="Enter your first name"

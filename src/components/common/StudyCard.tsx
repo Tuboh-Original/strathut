@@ -10,9 +10,9 @@ type StudyCardProps = {
 const StudyCard: React.FC<StudyCardProps> = ({ image }) => {
   const navigate = useNavigate();
   return (
-    <Box className="p-8 border rounded-3xl border-white30 hover:cursor-pointer transition-all flex flex-col gap-24 hover:gap-2 hover:mt-24 duration-300 ease-in-out relative bottom-0 h-fit">
+    <Box className="p-2 sm:p-8 border rounded-xl sm:rounded-3xl border-white30 hover:cursor-pointer transition-all flex flex-col gap-16 hover:gap-2 hover:mt-24 duration-300 ease-in-out relative bottom-0 h-fit">
       <Box
-        className="w-full h-[42rem] rounded-2xl duration-500"
+        className="w-full h-[24rem] md:h-[42rem] rounded-lg sm:rounded-2xl duration-500"
         style={{
           backgroundImage: `url(${image})`,
           backgroundSize: "cover",

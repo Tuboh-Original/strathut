@@ -42,7 +42,7 @@ const Header = () => {
           <Link underline="none" href={"/"} className="w-32">
             <img src={logo} alt="Strathut white logo" />
           </Link>
-          <Box className="flex items-center gap-4 mt-4">
+          <Box className="items-center gap-4 mt-4 hidden sm:flex">
             <Button
               className="!text-xl !text-white !capitalize"
               aria-controls={open ? "basic-menu" : undefined}
@@ -110,7 +110,7 @@ const Header = () => {
         </Box>
         <Button
           variant="contained"
-          className="bg-gradientPrimary3 !rounded-e-full !rounded-s-full !text-2xl !p-4 flex gap-1 !normal-case"
+          className="bg-gradientPrimary3 !rounded-e-full !rounded-s-full !text-2xl !p-4 gap-1 !normal-case !hidden sm:!flex"
           onClick={() => navigate("/new-project")}
         >
           <span>Start a project</span>

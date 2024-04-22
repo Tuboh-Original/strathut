@@ -33,12 +33,17 @@ const links = [
 
 const About = () => {
   return (
-    <Box className="w-full">
+    <Box className="w-full relative">
       <Box className="max-w-[1440px] flex flex-col items-center mx-auto">
-        <Box className="py-28 2xl:py-36 px-4 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center relative overflow-clip">
+        <Box className="py-16 sm:py-28 2xl:py-36 px-4 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center relative overflow-clip">
           <Box className="flex flex-col gap-10">
-            <p className="text-7xl font-medium">About Strathut</p>
-            <p data-aos="fade-up" className="text-lg text-textBody">
+            <p className="text-7xl font-medium">
+              About Strathut
+            </p>
+            <p
+              data-aos="fade-up"
+              className="text-2xl sm:text-lg text-textBody"
+            >
               At Strathut, we're more than just a digital marketing agency;
               we're your strategic partner in navigating the ever-evolving
               digital landscape. With a focus on innovation, creativity, and
@@ -46,9 +51,9 @@ const About = () => {
               heights in the digital realm.
             </p>
           </Box>
-          <Box className="rounded-2xl backdrop-blur-lg h-96 bg-white/30 p-6 relative z-10">
+          <Box className="rounded-2xl backdrop-blur-lg h-72 sm:h-96 bg-white/30 p-4 sm:p-6 relative z-10">
             <Box
-              className="w-full h-full rounded-2xl flex items-center justify-center   "
+              className="w-full h-full rounded-2xl flex items-center justify-center"
               style={{
                 backgroundImage: `url(${vidPH})`,
                 backgroundSize: "cover",
@@ -56,7 +61,7 @@ const About = () => {
                 backgroundPosition: "center",
               }}
             >
-              <Box className="m-auto h-36 w-36 bg-primary rounded-full flex items-center justify-center">
+              <Box className="m-auto h-24 w-24 sm:h-36 sm:w-36 bg-primary rounded-full flex items-center justify-center">
                 <PlayArrow className="!text-7xl" />
               </Box>
             </Box>
