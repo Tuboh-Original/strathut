@@ -77,15 +77,16 @@ function App() {
     });
     AOS.refresh();
 
-    const cursorBall = document.querySelector("#cursor-ball");
-    const cursorOutline = document.querySelector("#cursor-outline");
+    const cursorBall = document.querySelector<HTMLElement>("#cursor-ball");
+    const cursorOutline =
+      document.querySelector<HTMLElement>("#cursor-outline");
 
     document.addEventListener("mousemove", (e) => {
-      cursorBall.style.top = e.pageY + "px";
-      cursorBall.style.left = e.pageX + "px";
+      cursorBall!.style.top = e.pageY + "px";
+      cursorBall!.style.left = e.pageX + "px";
 
-      cursorOutline.style.top = e.pageY + "px";
-      cursorOutline.style.left = e.pageX + "px";
+      cursorOutline!.style.top = e.pageY + "px";
+      cursorOutline!.style.left = e.pageX + "px";
     });
 
     // (function () {

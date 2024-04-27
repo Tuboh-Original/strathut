@@ -26,7 +26,9 @@ const StratButton: React.FC<StratButtonProps> = ({
   textColor = "#111111",
   onButton,
 }) => {
-  const [element, setElement] = React.useState<null | HTMLElement>(null);
+  const [element, setElement] = React.useState<null | React.BaseSyntheticEvent>(
+    null
+  );
 
   React.useEffect(() => {
     gsap.to(".arrow", {
