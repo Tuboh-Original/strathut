@@ -4,9 +4,26 @@ import StratButton from "../../components/common/Button";
 import { useNavigate } from "react-router-dom";
 import Footer from "../../components/navigation/Footer";
 import bg from "../../assets/images/studyBg.png";
+import React from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "gsap";
 
 const CaseStudy = () => {
   const navigate = useNavigate();
+  React.useEffect(() => {
+    ScrollTrigger.batch(".studyCard", {
+      interval: 0.1, // time window (in seconds) for batching to occur. The first callback that occurs (of its type) will start the timer, and when it elapses, any other similar callbacks for other targets will be batched into an array and fed to the callback. Default is 0.1
+      batchMax: 3, // maximum batch size (targets)
+      onEnter: (batch) =>
+        gsap.to(batch, { autoAlpha: 1, stagger: 0.15, overwrite: true }),
+      onLeave: (batch) => gsap.set(batch, { autoAlpha: 0, overwrite: true }),
+      onEnterBack: (batch) =>
+        gsap.to(batch, { autoAlpha: 1, stagger: 0.15, overwrite: true }),
+      onLeaveBack: (batch) =>
+        gsap.set(batch, { autoAlpha: 0, overwrite: true }),
+      // you can also define things like start, end, etc.
+    });
+  }, []);
   return (
     <Box className="flex flex-col w-full mt-12 gap-8 md:gap-20">
       {/* Hero */}
@@ -23,15 +40,23 @@ const CaseStudy = () => {
         <Box className="max-w-[1440px] flex flex-col items-center">
           <Box className="py-16 sm:py-28 2xl:py-36 px-4 md:px-12 flex flex-col gap-16 items-center">
             <Box className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <p className="text-5xl sm:text-7xl font-medium">Accessible Health Care</p>
-              <p className="text-2xl sm:text-3xl leading-7 text-textBody sm:leading-[2.75rem]">
+              <p className="text-5xl sm:text-7xl font-medium">
+                Accessible Health Care
+              </p>
+              <p
+                data-aos="fade-left"
+                className="text-2xl sm:text-3xl leading-7 text-textBody sm:leading-[2.75rem]"
+              >
                 Lorem ipsum dolor sit amet consectetur. Elementum scelerisque
                 volutpat sem non justo est nisi in.
               </p>
             </Box>
             <Box className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {[0, 1, 2, 3].map((ind) => (
-                <Box key={ind} className="py-3 border-t border-t-secondary">
+                <Box
+                  key={ind}
+                  className="studyCard py-3 border-t border-t-secondary"
+                >
                   <p>20% Lorem ipsum dolor sit amet consectetur.</p>
                 </Box>
               ))}
@@ -40,10 +65,10 @@ const CaseStudy = () => {
               {[0, 1, 2].map((ind) => (
                 <Box
                   key={ind}
-                  className="p-2 sm:p-8 border rounded-xl sm:rounded-3xl border-white30"
+                  className="studyCard  h-[38rem] p-2 sm:p-8 border rounded-xl sm:rounded-3xl border-white30 hover:p-0 hover:border-none transition-all duration-700 ease-in-out"
                 >
                   <Box
-                    className="w-full h-[36rem] rounded-lg sm:rounded-2xl duration-500"
+                    className="w-full h-full rounded-lg sm:rounded-2xl duration-500"
                     style={{
                       backgroundImage: `url(${product})`,
                       backgroundSize: "cover",
@@ -56,7 +81,9 @@ const CaseStudy = () => {
             </Box>
             <Box className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <Box className="flex flex-col gap-2">
-                <p className="font-medium text-5xl sm:text-6xl">The Challenge</p>
+                <p className="font-medium text-5xl sm:text-6xl">
+                  The Challenge
+                </p>
                 <p className="font-light text-lg">
                   The Design stage is a meticulous process during which we apply
                   the selected Concept for your digital product across all the
@@ -84,10 +111,10 @@ const CaseStudy = () => {
               {[0, 1, 2, 3].map((ind) => (
                 <Box
                   key={ind}
-                  className="p-2 sm:p-8 border rounded-xl sm:rounded-3xl border-white30 w-full"
+                  className="studyCard h-[40rem] p-2 sm:p-8 border rounded-xl sm:rounded-3xl border-white30 w-full hover:p-0 hover:border-none transition-all duration-700 ease-in-out"
                 >
                   <Box
-                    className="w-full h-[36rem] rounded-lg sm:rounded-2xl duration-500"
+                    className="w-full h-full rounded-lg sm:rounded-2xl duration-500"
                     style={{
                       backgroundImage: `url(${product})`,
                       backgroundSize: "cover",
@@ -112,7 +139,9 @@ const CaseStudy = () => {
                 </p>
               </Box>
               <Box className="flex flex-col gap-2">
-                <p className="font-medium text-5xl sm:text-6xl">Insights & Learning</p>
+                <p className="font-medium text-5xl sm:text-6xl">
+                  Insights & Learning
+                </p>
                 <p className="font-light text-lg">
                   The Design stage is a meticulous process during which we apply
                   the selected Concept for your digital product across all the
@@ -125,8 +154,8 @@ const CaseStudy = () => {
               </Box>
             </Box>
             <StratButton
+              id={"button7"}
               onButton={() => navigate("/case-studies")}
-              className="border-[6px] border-opacity-40 border-gray-500 backdrop-blur-[15px] hover:cursor-pointer"
             >
               View all case studies
             </StratButton>
@@ -147,8 +176,8 @@ const CaseStudy = () => {
         </p>
         <p className="font-medium text-6xl">Tuboh</p>
         <StratButton
+          id={"button8"}
           // onButton={() => navigate("/case-studies")}
-          className="border-[6px] border-opacity-40 border-gray-500 backdrop-blur-[15px] hover:cursor-pointer"
         >
           View Case Study
         </StratButton>

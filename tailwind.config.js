@@ -14,7 +14,8 @@ export default {
         white30: "rgba(255, 255, 255, 0.30)",
         white40: "rgba(255, 255, 255, 0.40)",
         black50: "rgba(0, 0, 0, 0.50)",
-        secondary15: "rgba(2, 201, 134, 0.15)"
+        secondary15: "rgba(2, 201, 134, 0.15)",
+        secondary0: "rgba(2, 201, 134, 0)",
       },
       backgroundImage: {
         gradientPrimary1: 'linear-gradient(180deg, #111111 40%, #5400E2 100%)',

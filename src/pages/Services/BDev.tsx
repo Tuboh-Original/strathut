@@ -85,7 +85,7 @@ const BrandDev = () => {
               Brand Development
             </p>
             <img src={mockup} alt="web mockup" />
-            <p className="text-2xl md:text-3xl">
+            <p data-aos="fade-up" className="text-2xl md:text-3xl">
               We craft compelling brand identities that resonate with your
               target audience and set you apart from the competition. Let us
               guide your brand's journey with strategic insights and creative
@@ -101,7 +101,7 @@ const BrandDev = () => {
               Your Brand, Our Passion: Crafting Authentic Identities for Lasting
               Impressions
             </p>
-            <p className="text-2xl sm:text-3xl text-textBody leading-7 sm:leading-[2.75rem]">
+            <p data-aos="fade-left" className="text-2xl sm:text-3xl text-textBody leading-7 sm:leading-[2.75rem]">
               Our process is designed for your success. It's designed for
               successful collaboration, transparency and efficiency.
             </p>

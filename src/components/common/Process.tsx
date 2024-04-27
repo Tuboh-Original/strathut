@@ -41,7 +41,7 @@ const Process = () => {
           <p className="text-7xl font-medium">
             Our Process
           </p>
-          <p className="text-2xl sm:text-3xl text-textBody sm:px-20 leading-6 sm:leading-[2.75rem]">
+          <p data-aos="fade-left" className="text-2xl sm:text-3xl text-textBody sm:px-20 leading-6 sm:leading-[2.75rem]">
             At Strathut, we follow a streamlined process to ensure the success
             of every client project
           </p>

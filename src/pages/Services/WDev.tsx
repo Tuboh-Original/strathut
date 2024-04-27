@@ -85,7 +85,7 @@ const WebDev = () => {
               Website Development
             </p>
             <img src={mockup} alt="web mockup" />
-            <p className="text-2xl md:text-3xl">
+            <p data-aos="fade-up" className="text-2xl md:text-3xl">
               We build websites that reflect your brand's essence and engage
               your audience seamlessly. Let us bring your digital vision to life
               with our expertise in website development.
@@ -99,18 +99,26 @@ const WebDev = () => {
             <p className="text-5xl sm:text-7xl font-medium">
               Websites That Speak: Crafting Digital Narratives for Your Brand
             </p>
-            <p className="text-2xl sm:text-3xl text-textBody leading-7 sm:leading-[2.75rem]">
+            <p
+              data-aos="fade-left"
+              className="text-2xl sm:text-3xl text-textBody leading-7 sm:leading-[2.75rem]"
+            >
               Our process is designed for your success. It's designed for
               successful collaboration, transparency and efficiency.
             </p>
           </Box>
           <Box className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-12 sm:gap-y-24 w-full">
             {Processes?.map((serv, ind) => (
-              <Box key={ind} className={`flex flex-col gap-3 sm:gap-5 p-2 sm:p-8`}>
+              <Box
+                key={ind}
+                className={`flex flex-col gap-3 sm:gap-5 p-2 sm:p-8`}
+              >
                 <p className={`text-secondary text-3xl sm:text-4xl font-bold`}>
                   {serv?.id}
                 </p>
-                <p className={`font-medium text-4xl sm:text-6xl`}>{serv?.title}</p>
+                <p className={`font-medium text-4xl sm:text-6xl`}>
+                  {serv?.title}
+                </p>
                 <p className={`text-lg font-light`}>{serv?.desc}</p>
               </Box>
             ))}

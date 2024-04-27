@@ -3,12 +3,15 @@ import mockup from "../../assets/images/tubohMockup.png";
 import freepik from "../../assets/images/tubohFreepik.png";
 import React from "react";
 import Collapse from "@mui/material/Collapse";
+import { motion } from "framer-motion";
 import quote from "../../assets/icons/quotes.svg";
+import splitStringUsingRegex from "../../utils/splitStringUsingRegex";
 
 const services = [
   {
     id: "01",
     text: "Web Design",
+    tags: ["travel", "health", "landing", "web design", "SaaS"],
     description:
       "We create world-class websites using modern design practices. Mobile-\
     first websites and web experiences are essential to the success of your \
@@ -21,6 +24,7 @@ const services = [
   {
     id: "02",
     text: "Branding",
+    tags: ["travel", "health", "landing", "web design", "SaaS"],
     description:
       "We create world-class websites using modern design practices. Mobile-\
     first websites and web experiences are essential to the success of your \
@@ -33,6 +37,7 @@ const services = [
   {
     id: "03",
     text: "UI/UX Design",
+    tags: ["travel", "health", "landing", "web design", "SaaS"],
     description:
       "We create world-class websites using modern design practices. Mobile-\
     first websites and web experiences are essential to the success of your \
@@ -45,6 +50,7 @@ const services = [
   {
     id: "04",
     text: "Product Design",
+    tags: ["travel", "health", "landing", "web design", "SaaS"],
     description:
       "We create world-class websites using modern design practices. Mobile-\
     first websites and web experiences are essential to the success of your \
@@ -56,18 +62,26 @@ const services = [
   },
 ];
 
-function handleMouseMove(event: React.MouseEvent) {
-  // 👇️ Get the mouse position relative to the element
-  const element = event.target as HTMLInputElement;
-  return {
-    x: event?.clientX - element?.offsetLeft,
-    y: event?.pageY - element.offsetTop,
-  };
-}
+// function handleMouseMove(event: React.MouseEvent) {
+//   // 👇️ Get the mouse position relative to the element
+//   const element = event.target as HTMLInputElement;
+//   return {
+//     x: event?.clientX - element?.offsetLeft,
+//     y: event?.pageY - element.offsetTop,
+//   };
+// }
+
+const quoteText =
+  "Our unparalleled technical expertise, commitment to cutting-edge solutions, and attention to detail ensure results that exceed expectations, empowering your business to thrive digitally.";
+
+const charVariants = {
+  hidden: { opacity: 0 },
+  reveal: { opacity: 1 },
+};
 
 const Services = () => {
   const [selectedService, setSelectedService] = React.useState(0);
-  const [position, setPosition] = React.useState("");
+  const quoteChars = splitStringUsingRegex(quoteText);
 
   return (
     <Box className="py-16 sm:py-28 2xl:py-36 px-4 md:px-12 flex flex-col items-center bg-gradientPrimary2 w-full">
@@ -85,7 +99,7 @@ const Services = () => {
                   }}
                   className={`flex ${
                     selectedService === ind && "gap-2 items-center"
-                  } duration-700 ease-in-out transition-all hover:cursor-pointer ${
+                  } duration-700 ease-in-out transition-all strathut-cursor ${
                     selectedService !== ind && "hover:text-secondary"
                   }`}
                 >
@@ -110,9 +124,20 @@ const Services = () => {
                   in={selectedService === ind}
                   timeout={500}
                   easing={"cubic-bezier(0.4, 0, 0.2, 1)"}
+                  className="flex flex-col gap-6"
                 >
+                  <div className="flex gap-4">
+                    {serv?.tags?.map((tag, ind) => (
+                      <div
+                        key={ind}
+                        className="studyCard py-2 px-5 border border-white40 rounded-s-full rounded-e-full bg-transparent capitalize text-white hover:border-secondary hover:text-secondary"
+                      >
+                        {tag}
+                      </div>
+                    ))}
+                  </div>
                   <p
-                    className={`text-lg transition-all duration-700 ease-in-out ${
+                    className={`text-lg transition-all duration-700 ease-in-out mt-5 ${
                       selectedService === ind
                         ? "block opacity-1"
                         : "opacity-0 hidden"
@@ -125,60 +150,52 @@ const Services = () => {
             ))}
           </Box>
           <Box
-            className={`w-full h-fit sm:h-[48rem] rounded-lg transition-all duration-1000 flex items-center ${
-              position === "top-left"
-                ? "hover:ps-16 hover:pt-16"
-                : position === "top-right"
-                ? "hover:pe-16 hover:pt-16"
-                : position === "bottom-right"
-                ? "hover:pe-16 hover:pb-16"
-                : position === "bottom-left"
-                ? "hover:ps-16 hover:pb-16"
-                : "hover:p-0"
-            }`}
-            // style={{
-            //   backgroundImage: `url(${services[selectedService]?.image})`,
-            //   backgroundSize: "cover",
-            //   backgroundRepeat: "no-repeat",
-            //   backgroundPosition: "center",
-            // }}
-            onMouseEnter={(e) => {
-              const element = e.target as HTMLInputElement;
-              if (handleMouseMove(e).x < element?.clientWidth / 2) {
-                handleMouseMove(e).y < element?.clientHeight / 2
-                  ? setPosition("top-left")
-                  : setPosition("bottom-left");
-              } else {
-                handleMouseMove(e).y < element?.clientHeight / 2
-                  ? setPosition("top-right")
-                  : setPosition("bottom-right");
-              }
-            }}
-            onMouseLeave={() => setPosition("")}
+            className={`w-full h-fit rounded-xl sm:rounded-3xl transition-all duration-700 flex items-center ease-in-out hover:border hover:border-white30 hover:p-2 hover:sm:p-8`}
           >
-            <img
-              src={services[selectedService]?.image}
-              height={"100%"}
-              width={"95%"}
-            />
+            <Box
+              className="w-full h-[24rem] md:h-[45rem] rounded-lg sm:rounded-2xl duration-500"
+              style={{
+                backgroundImage: `url(${services[selectedService]?.image})`,
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+              }}
+            ></Box>
           </Box>
         </Box>
-        <Box className="flex flex-col w-full">
+        <Box className="flex flex-col w-full mt-24">
           <Box className="w-full">
             <img src={quote} alt="Quote" width={"30rem"} height={"auto"} />
           </Box>
-          <p className="text-3xl sm:text-8xl leading-10 sm:leading-[6rem] w-full">
-            The team's dedication, creativity, and attention to detail have
-            surpassed our expectations, and we couldn't be happier with the
-            results.
-          </p>
+          <Box className="w-full relative">
+            <p className="text-3xl sm:text-8xl leading-10 sm:leading-[6rem] w-full relative text-textBody">
+              {quoteText}
+            </p>
+            <motion.p
+              initial="hidden"
+              whileInView={"reveal"}
+              transition={{ staggerChildren: 0.01 }}
+              className="absolute left-0 top-0 text-3xl sm:text-8xl leading-10 sm:leading-[6rem] w-full text-secondary"
+            >
+              {quoteChars?.map((char, ind) => (
+                <motion.span
+                  key={ind}
+                  transition={{ duration: 0.5 }}
+                  variants={charVariants}
+                >
+                  {char}
+                </motion.span>
+              ))}
+            </motion.p>
+          </Box>
+
           <Box className="w-full flex items-center justify-between">
             <Box className="flex flex-col">
               <p className="text-secondary font-medium text-[0.9rem] uppercase">
-                TEMITOPE FAMUYIWA
+                AKINWUNMI ESO
               </p>
               <p className="text-textBody text-[0.9rem] uppercase">
-                FOUNDER, PROTON
+                FOUNDER, STRATHUT
               </p>
             </Box>
             <img src={quote} alt="Quote" width={"30rem"} height={"auto"} />

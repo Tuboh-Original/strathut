@@ -151,13 +151,8 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body, #root {
-  /* -ms-overflow-style: none;
-  scrollbar-width: none;
-  scrollbar-color: rgba(0, 0, 0, 0); */
-}
-
-body::-webkit-scrollbar, #root::-webkit-scrollbar {
+body::-webkit-scrollbar,
+#root::-webkit-scrollbar {
   display: none;
 }
 
@@ -168,4 +163,40 @@ body::-webkit-scrollbar, #root::-webkit-scrollbar {
 }
 .download::-webkit-scrollbar {
   display: none;
+}
+
+.strathut-cursor:hover {
+  cursor: url("./assets/images/logoCursor.png"), auto !important;
+}
+/* 
+div.cursor-ball-hover {
+  background-color: transparent;
+  pointer-events: all;
+}
+
+div.cursor-outline-hover {
+  border: none;
+  pointer-events: all;
+} */
+
+.cursor-ball {
+  width: 8px;
+  height: 8px;
+  background-color: #02c986;
+}
+
+.cursor-outline {
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid rgba(2, 201, 134, 0.8);
+  transition: all 0.25s ease;
+}
+
+.cursor-ball,
+.cursor-outline {
+  border-radius: 50%;
+  position: absolute;
+  z-index: 100;
+  pointer-events: none;
+  transform: translate(-20%, -20%);
 }

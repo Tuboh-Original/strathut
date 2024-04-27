@@ -85,7 +85,7 @@ const UDesign = () => {
               UI/UX Design
             </p>
             <img src={mockup} alt="web mockup" />
-            <p className="text-2xl md:text-3xl">
+            <p data-aos="fade-up" className="text-2xl md:text-3xl">
               We design intuitive interfaces that prioritize user experience,
               ensuring seamless interaction and engagement. Let our UI/UX
               expertise elevate your digital products to the next level.
@@ -100,7 +100,7 @@ const UDesign = () => {
               Designing Delight: Elevating User Experiences with Expert UI/UX
               Solutions
             </p>
-            <p className="text-2xl sm:text-3xl text-textBody leading-7 sm:leading-[2.75rem]">
+            <p data-aos="fade-left" className="text-2xl sm:text-3xl text-textBody leading-7 sm:leading-[2.75rem]">
               Our process is designed for your success. It's designed for
               successful collaboration, transparency and efficiency.
             </p>

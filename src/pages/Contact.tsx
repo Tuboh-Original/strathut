@@ -99,7 +99,7 @@ const Contact = () => {
                   multiline
                   maxRows={4}
                 />
-                <StratButton className="mt-24 mx-auto border-[6px] border-opacity-40 border-gray-500 backdrop-blur-[15px]">
+                <StratButton id={"button4"} className="mt-24 mx-auto border-[6px] border-opacity-40 border-gray-500 backdrop-blur-[15px]">
                   Send
                 </StratButton>
               </Box>

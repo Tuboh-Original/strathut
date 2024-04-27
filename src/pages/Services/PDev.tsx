@@ -85,7 +85,7 @@ const ProDev = () => {
               Product Development
             </p>
             <img src={mockup} alt="web mockup" />
-            <p className="text-2xl md:text-3xl">
+            <p data-aos="fade-up" className="text-2xl md:text-3xl">
               From concept to launch, we transform ideas into innovative
               products that resonate with your audience. Our streamlined
               approach ensures efficient development and exceptional quality,
@@ -101,7 +101,7 @@ const ProDev = () => {
               From Vision to Reality: Crafting Innovative Products for Your
               Success
             </p>
-            <p className="text-2xl sm:text-3xl text-textBody leading-7 sm:leading-[2.75rem]">
+            <p data-aos="fade-left" className="text-2xl sm:text-3xl text-textBody leading-7 sm:leading-[2.75rem]">
               Our process is designed for your success. It's designed for
               successful collaboration, transparency and efficiency.
             </p>

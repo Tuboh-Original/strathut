@@ -2,6 +2,7 @@ import Box from "@mui/material/Box";
 import StratButton from "../common/Button";
 import logo from "../../assets/icons/logoWhite.svg";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const services = [
   "web design",
@@ -23,13 +24,16 @@ const Footer = () => {
               <p className="text-6xl sm:text-8xl leading-[3.75rem] sm:leading-[6rem] font-medium">
                 Let's Create Magic
               </p>
-              <p className="text-textBody text-3xl">hello@strathut.com</p>
+              <p className="text-textBody text-3xl hover:text-secondary duration-500 transition-colors">
+                hello@strathut.com
+              </p>
             </Box>
             <Box className="flex flex-col gap-4 sm:gap-8">
               <p className="text-3xl leading-[2.75rem] font-medium">
                 Got a project idea?
               </p>
               <StratButton
+                id={"button3"}
                 onButton={() => navigate("/contact")}
                 className="border-[6px] border-opacity-40 border-gray-500 backdrop-blur-[15px] capitalize"
               >
@@ -43,12 +47,20 @@ const Footer = () => {
               <p className="font-bold">Services</p>
               <Box className="flex flex-col gap-3 sm:gap-6">
                 {services?.map((service, ind) => (
-                  <p
+                  <motion.a
                     key={ind}
-                    className="text-lg capitalize font-light hover:font-normal duration-500 ease-in-out"
+                    className="text-lg capitalize font-light ease-in-out w-fit cursor-none"
+                    id={`services${ind}`}
+                    initial={{
+                      color: "#fff",
+                    }}
+                    whileHover={{
+                      color: "#02C986",
+                    }}
+                    transition={{ duration: 0.5, type: "spring", damping: 8 }}
                   >
                     {service}
-                  </p>
+                  </motion.a>
                 ))}
               </Box>
             </Box>
@@ -56,12 +68,21 @@ const Footer = () => {
               <p className="font-bold">Contact</p>
               <Box className="flex flex-col gap-3 sm:gap-6">
                 {contact?.map((service, ind) => (
-                  <p
+                  <motion.a
                     key={ind}
-                    className="text-lg font-light hover:font-normal duration-500 ease-in-out"
+                    href={ind === 1 ? `mailto:${service}` : `tel:${service}`}
+                    className="text-lg font-light w-fit cursor-none"
+                    id={`contacts${ind}`}
+                    initial={{
+                      color: "#fff",
+                    }}
+                    whileHover={{
+                      color: "#02C986",
+                    }}
+                    transition={{ duration: 0.5, type: "spring", damping: 8 }}
                   >
                     {service}
-                  </p>
+                  </motion.a>
                 ))}
               </Box>
             </Box>
@@ -69,12 +90,20 @@ const Footer = () => {
               <p className="font-bold">Connect</p>
               <Box className="flex flex-col gap-3 sm:gap-6">
                 {connect?.map((con, ind) => (
-                  <p
+                  <motion.a
                     key={ind}
-                    className="text-lg capitalize font-light hover:font-normal duration-500 ease-in-out"
+                    className="text-lg capitalize font-light w-fit cursor-none"
+                    id={`connect${ind}`}
+                    initial={{
+                      color: "#fff",
+                    }}
+                    whileHover={{
+                      color: "#02C986",
+                    }}
+                    transition={{ duration: 0.5, type: "spring", damping: 8 }}
                   >
                     {con}
-                  </p>
+                  </motion.a>
                 ))}
               </Box>
             </Box>

@@ -15,7 +15,7 @@ const AboutPage = () => {
             <p className="text-5xl sm:text-8xl lg:text-[10rem] lg:leading-[8rem] font-medium text-center">
               We Are Your Digital Transformation Partner
             </p>
-            <p className="text-lg sm:text-xl lg:text-3xl">
+            <p data-aos="fade-up" className="text-lg sm:text-xl lg:text-3xl">
               With a focus on innovation, creativity, and data-driven
               strategies, we're here to propel your brand to new heights in the
               digital realm.

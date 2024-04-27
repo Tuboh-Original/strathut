@@ -217,14 +217,14 @@ const NewProject = () => {
                   </Button>
                 )}
                 {page < 3 ? (
-                  <StratButton
+                  <StratButton id={"button5"}
                     onButton={() => handleNext()}
                     className="border-[6px] border-opacity-40 border-gray-500 backdrop-blur-[15px]"
                   >
                     Next
                   </StratButton>
                 ) : (
-                  <StratButton className="border-[6px] border-opacity-40 border-gray-500 backdrop-blur-[15px]">
+                  <StratButton id={"button6"} className="border-[6px] border-opacity-40 border-gray-500 backdrop-blur-[15px]">
                     Send
                   </StratButton>
                 )}

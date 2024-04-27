@@ -86,7 +86,7 @@ const AppDev = () => {
               App Development
             </p>
             <img src={mockup} alt="web mockup" />
-            <p className="text-2xl md:text-3xl">
+            <p data-aos="fade-up" className="text-2xl md:text-3xl">
               We create captivating mobile experiences that captivate users and
               drive results. Let our expert team turn your app idea into a
               reality, tailored to meet your unique needs and objectives.
@@ -101,7 +101,7 @@ const AppDev = () => {
               Innovation in Your Palm: Crafting Apps That Transform Ideas into
               Reality.
             </p>
-            <p className="text-2xl sm:text-3xl text-textBody leading-7 sm:leading-[2.75rem]">
+            <p data-aos="fade-left" className="text-2xl sm:text-3xl text-textBody leading-7 sm:leading-[2.75rem]">
               Our process is designed for your success. It's designed for
               successful collaboration, transparency and efficiency.
             </p>

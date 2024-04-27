@@ -6,10 +6,12 @@ const StratTextField = styled(TextField)(({ theme }) => ({
   "& label": {
     color: "rgba(255, 255, 255, 0.50)",
     fontSize: "1.5rem",
+    cursor: "none"
   },
   "& label.Mui-focused": {
     color: "#FFFFFF",
     fontSize: "1.5rem",
+    cursor: "none"
   },
   "& .MuiInput-underline:after": {
     borderBottomColor: "#FFFFFF",
@@ -26,16 +28,20 @@ const StratTextField = styled(TextField)(({ theme }) => ({
     lineHeight: 1,
     scrollbarWidth: "none",
     scrollbarColor: "rgba(0, 0, 0, 0)",
+    cursor: "none"
   },
   "& .MuiInput-input:focus": {
     color: "rgb(255, 255, 255)",
+    cursor: "none"
   },
   "& .MuiInput-input:hover": {
     color: "rgb(255, 255, 255)",
+    cursor: "none"
   },
   "& .MuiInput-root": {
     marginTop: "2rem",
     color: "rgb(255, 255, 255)",
+    cursor: "none"
   },
   "& .MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before": {
     borderBottom: "2px solid rgb(255, 255, 255)",
@@ -52,10 +58,12 @@ const StratPhoneNumberField = styled(MuiPhoneNumber)(({ theme }) => ({
   "& label": {
     color: "rgba(255, 255, 255, 0.50)",
     fontSize: "1.5rem",
+    cursor: "none"
   },
   "& label.Mui-focused": {
     color: "#FFFFFF",
     fontSize: "1.5rem",
+    cursor: "none"
   },
   "& .MuiInput-underline:after": {
     borderBottomColor: "#FFFFFF",
@@ -72,16 +80,20 @@ const StratPhoneNumberField = styled(MuiPhoneNumber)(({ theme }) => ({
     lineHeight: 1,
     scrollbarWidth: "none",
     scrollbarColor: "rgba(0, 0, 0, 0)",
+    cursor: "none"
   },
   "& .MuiInput-input:focus": {
     color: "rgb(255, 255, 255)",
+    cursor: "none"
   },
   "& .MuiInput-input:hover": {
     color: "rgb(255, 255, 255)",
+    cursor: "none"
   },
   "& .MuiInput-root": {
     marginTop: "2rem",
     color: "rgb(255, 255, 255)",
+    cursor: "none"
   },
   "& .MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before": {
     borderBottom: "2px solid rgb(255, 255, 255)",
