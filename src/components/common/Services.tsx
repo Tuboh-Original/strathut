@@ -10,54 +10,42 @@ import splitStringUsingRegex from "../../utils/splitStringUsingRegex";
 const services = [
   {
     id: "01",
-    text: "Web Design",
+    text: "Web Development",
     tags: ["travel", "health", "landing", "web design", "SaaS"],
     description:
-      "We create world-class websites using modern design practices. Mobile-\
-    first websites and web experiences are essential to the success of your \
-    web project. While maintaining bespoke originality, our team will focus on \
-    responsive design and optimize your website for any device and \
-    interface. Your new website will attract desirable target audiences, boost \
-    engagement, drive sales, and increase the brand value of your business.",
+      "At Strathut, we specialize in creating world-class websites using modern design practices. We understand the importance of mobile-first websites and web experiences in today's digital landscape. Our team is dedicated to maintaining bespoke originality while focusing on responsive design to ensure your website looks stunning and functions seamlessly on any device and interface. With our expertly crafted websites, you'll attract desirable target audiences, boost engagement, drive sales, and elevate the brand value of your business",
     image: mockup,
   },
   {
     id: "02",
-    text: "Branding",
+    text: "UI/UX Design",
     tags: ["travel", "health", "landing", "web design", "SaaS"],
     description:
-      "We create world-class websites using modern design practices. Mobile-\
-    first websites and web experiences are essential to the success of your \
-    web project. While maintaining bespoke originality, our team will focus on \
-    responsive design and optimize your website for any device and \
-    interface. Your new website will attract desirable target audiences, boost \
-    engagement, drive sales, and increase the brand value of your business.",
+      "At Strathut, we specialize in creating world-class websites using modern design practices. We understand the importance of mobile-first websites and web experiences in today's digital landscape. Our team is dedicated to maintaining bespoke originality while focusing on responsive design to ensure your website looks stunning and functions seamlessly on any device and interface. With our expertly crafted websites, you'll attract desirable target audiences, boost engagement, drive sales, and elevate the brand value of your business",
     image: freepik,
   },
   {
     id: "03",
-    text: "UI/UX Design",
+    text: "Product Development",
     tags: ["travel", "health", "landing", "web design", "SaaS"],
     description:
-      "We create world-class websites using modern design practices. Mobile-\
-    first websites and web experiences are essential to the success of your \
-    web project. While maintaining bespoke originality, our team will focus on \
-    responsive design and optimize your website for any device and \
-    interface. Your new website will attract desirable target audiences, boost \
-    engagement, drive sales, and increase the brand value of your business.",
+      "At Strathut, we specialize in creating world-class websites using modern design practices. We understand the importance of mobile-first websites and web experiences in today's digital landscape. Our team is dedicated to maintaining bespoke originality while focusing on responsive design to ensure your website looks stunning and functions seamlessly on any device and interface. With our expertly crafted websites, you'll attract desirable target audiences, boost engagement, drive sales, and elevate the brand value of your business",
     image: mockup,
   },
   {
     id: "04",
-    text: "Product Design",
+    text: "Brand Development",
     tags: ["travel", "health", "landing", "web design", "SaaS"],
     description:
-      "We create world-class websites using modern design practices. Mobile-\
-    first websites and web experiences are essential to the success of your \
-    web project. While maintaining bespoke originality, our team will focus on \
-    responsive design and optimize your website for any device and \
-    interface. Your new website will attract desirable target audiences, boost \
-    engagement, drive sales, and increase the brand value of your business.",
+      "At Strathut, we specialize in creating world-class websites using modern design practices. We understand the importance of mobile-first websites and web experiences in today's digital landscape. Our team is dedicated to maintaining bespoke originality while focusing on responsive design to ensure your website looks stunning and functions seamlessly on any device and interface. With our expertly crafted websites, you'll attract desirable target audiences, boost engagement, drive sales, and elevate the brand value of your business",
+    image: freepik,
+  },
+  {
+    id: "04",
+    text: "App Development",
+    tags: ["travel", "health", "landing", "web design", "SaaS"],
+    description:
+      "At Strathut, we specialize in creating world-class websites using modern design practices. We understand the importance of mobile-first websites and web experiences in today's digital landscape. Our team is dedicated to maintaining bespoke originality while focusing on responsive design to ensure your website looks stunning and functions seamlessly on any device and interface. With our expertly crafted websites, you'll attract desirable target audiences, boost engagement, drive sales, and elevate the brand value of your business",
     image: freepik,
   },
 ];
@@ -88,7 +76,7 @@ const Services = () => {
       <Box className="max-w-[1440px] flex flex-col gap-10 sm:gap-16 items-center w-full">
         <p className="text-5xl sm:text-7xl font-medium w-full">Our Services</p>
         <Box className="grid grid-cols-1 sm:grid-cols-2 gap-12 sm:gap-20 w-full items-center">
-          <Box className={`flex flex-col gap-10 sm:gap-16`}>
+          <Box className={`flex flex-col gap-4 sm:gap-9 md:py-4`}>
             {services?.map((serv, ind) => (
               <Box key={ind} className={`flex flex-col gap-4`}>
                 <Box
@@ -150,10 +138,10 @@ const Services = () => {
             ))}
           </Box>
           <Box
-            className={`w-full h-fit rounded-xl sm:rounded-3xl transition-all duration-700 flex items-center ease-in-out hover:border hover:border-white30 hover:p-2 hover:sm:p-8`}
+            className={`w-full h-full rounded-xl sm:rounded-3xl transition-all duration-700 flex items-center ease-in-out hover:border hover:border-white30 hover:p-2 hover:sm:p-8`}
           >
             <Box
-              className="w-full h-[24rem] md:h-[45rem] rounded-lg sm:rounded-2xl duration-500"
+              className="w-full h-full min-h-[28rem] md:min-h-[42rem] rounded-lg sm:rounded-2xl duration-500"
               style={{
                 backgroundImage: `url(${services[selectedService]?.image})`,
                 backgroundSize: "cover",

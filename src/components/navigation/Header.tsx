@@ -1,5 +1,4 @@
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import logo from "../../assets/icons/logoWhite.svg";
 import East from "@mui/icons-material/East";
 import { useNavigate } from "react-router-dom";
@@ -54,7 +53,7 @@ const Header = () => {
               whileTap={{
                 filter: "hue-rotate(90deg)",
               }}
-              transition={{ duration: 1 }}
+              transition={{ duration: 1, type: "tween" }}
             />
           </a>
           <div className="items-center gap-4 mt-2 hidden sm:flex">
@@ -182,7 +181,7 @@ const Header = () => {
                   variants={{
                     hidden: { width: "0%" },
                     reveal: { width: "100%" },
-                    exit: {width: "-100%"}
+                    exit: { width: "-100%" },
                   }}
                   transition={{ duration: 0.5, type: "spring", damping: 8 }}
                 ></motion.div>
@@ -190,14 +189,66 @@ const Header = () => {
             ))}
           </div>
         </Box>
-        <Button
-          variant="contained"
-          className="bg-gradientPrimary3 strathut-cursor !rounded-e-full !rounded-s-full !text-2xl !p-4 gap-1 !normal-case !hidden sm:!flex text-nowrap w-fit"
+        <motion.button
+          className="bg-gradientPrimary3 strathut-cursor rounded-e-full rounded-s-full !text-2xl p-4 sm:py-4 sm:px-6 gap-2 !hidden sm:!flex text-nowrap w-fit sm:items-center"
           onClick={() => navigate("/new-project")}
+          initial="hidden"
+          whileHover={"reveal"}
+          variants={{
+            hidden: {
+              flexDirection: "row",
+              backgroundImage:
+                "linear-gradient(90deg, rgb(46, 21, 87) 0%, rgb(84, 0, 226) 100%)",
+            },
+            reveal: {
+              flexDirection: "row-reverse",
+              backgroundImage:
+                "linear-gradient(90deg, rgb(46, 21, 87, 0) 0%, rgba(84, 0, 226, 0) 100%)",
+            },
+          }}
+          transition={{ duration: 0.05 }}
         >
-          <span>Start a project</span>
-          <East />
-        </Button>
+          <motion.p
+            variants={{
+              hidden: {
+                color: "#FFFFFF",
+              },
+              reveal: {
+                color: "#02C986",
+              },
+            }}
+            transition={{ duration: 0.5, type: "spring", damping: 8 }}
+          >
+            Start a project
+          </motion.p>
+          <motion.svg
+            width={"1.25rem"}
+            height={"1.25rem"}
+            variants={{
+              hidden: {
+                rotate: 0,
+                color: "#FFFFFF",
+                border: "none",
+                borderRadius: "0px",
+                width: "1.25rem",
+                height: "1.25rem",
+                padding: "0px",
+              },
+              reveal: {
+                rotate: -45,
+                color: "#02C986",
+                border: `2px solid #02C986`,
+                borderRadius: "999px",
+                width: "2rem",
+                height: "2rem",
+                padding: "2px",
+              },
+            }}
+            transition={{ duration: 0.5, type: "spring", damping: 8 }}
+          >
+            <East />
+          </motion.svg>
+        </motion.button>
       </nav>
     </Box>
   );

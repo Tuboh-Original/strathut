@@ -1,7 +1,6 @@
 import * as React from "react";
 import East from "@mui/icons-material/East";
 import { motion } from "framer-motion";
-import gsap from "gsap";
 
 interface StratButtonProps {
   className?: string;
@@ -22,80 +21,55 @@ const StratButton: React.FC<StratButtonProps> = ({
   id,
   borderWidth = "6px",
   borderColor = "rgba(107, 114, 128, 0.4)",
-  bgColor,
   textColor = "#111111",
   onButton,
 }) => {
-  const [element, setElement] = React.useState<null | React.BaseSyntheticEvent>(
-    null
-  );
+  // React.useEffect(() => {
+  //   gsap.to(".arrow", {
+  //     motionPath: {
+  //       path: "#path",
+  //       align: "#path",
+  //       alignOrigin: [0.5, 0.5],
+  //       autoRotate: true,
+  //     },
+  //   });
+  // }, []);
 
-  React.useEffect(() => {
-    gsap.to(".arrow", {
-      motionPath: {
-        path: "#path",
-        align: "#path",
-        alignOrigin: [0.5, 0.5],
-        autoRotate: true,
-      },
-    });
-  }, []);
-
-  console.log(element);
+  // console.log(element);
+  // console.log(element?.target?.lastChild?.clientWidth);
   return (
     <div className="relative">
       <motion.button
         onClick={onButton}
         type={type}
         id={id}
-        className={`strathut-cursor z-10 relative text-[${textColor}] font-medium rounded-e-full rounded-s-full text-xl sm:text-2xl p-4 sm:py-4 sm:px-6 gap-2 flex items-center w-fit normal-case border-opacity-40 border-[${borderWidth}] border-[${borderColor}] ${
-          bgColor ? `bg-[${bgColor}]` : "bg-white"
-        } ${className}`}
-        // onMouseOver={(e) => setElement(e)}
+        className={`strathut-cursor z-10 relative text-[${textColor}] font-medium rounded-e-full rounded-s-full text-xl sm:text-2xl p-4 sm:py-4 sm:px-6 gap-2 flex items-center w-fit normal-case border-opacity-40 border-[${borderWidth}] border-[${borderColor}] ${className}`}
         initial="hidden"
-        animate="hidden"
         whileHover={"reveal"}
-        onHoverEnd={() => setElement(null)}
-        whileTap={"hidden"}
-        exit={"exit"}
         variants={{
           hidden: {
-            // flexDirection: "row",
-            backgroundColor: bgColor ? bgColor : "#fff",
-            border: `${borderWidth} solid ${borderColor}`,
-            padding: "1rem 1.25rem",
-            // borderColor: borderColor ? borderColor : "rgb(107, 114, 128/0.4)",
-            // borderWidth: borderWidth ? borderWidth : "6px",
-            // color: textColor ? textColor : "#111111",
+            flexDirection: "row",
+            backgroundColor: "rgba(255, 255, 255, 1)",
+            borderWidth: "6px",
           },
           reveal: {
-            // flexDirection: "row-reverse",
-            backgroundColor: "transparent",
-            border: `none`,
-            padding: "1.25rem 1.5rem",
-            // borderColor: "transparent",
-            // borderWidth: borderWidth,
-            // color: "#02C986",
+            flexDirection: "row-reverse",
+            backgroundColor: "rgba(255, 255, 255, 0)",
+            borderWidth: "0px",
           },
         }}
-        transition={{ duration: 0.15 }}
-        onMouseEnter={(e) => {
-          setElement(e);
-        }}
+        transition={{ duration: 0.05 }}
       >
         <motion.p
           variants={{
             hidden: {
-              x: 0,
-              color: textColor,
+              color: "#111111",
             },
             reveal: {
-              x: element?.target?.lastChild?.clientWidth + 8,
               color: "#02C986",
             },
           }}
           transition={{ duration: 0.5, type: "spring", damping: 8 }}
-          id={`child${id}`}
         >
           {children}
         </motion.p>
@@ -104,23 +78,27 @@ const StratButton: React.FC<StratButtonProps> = ({
           height={"1.25rem"}
           variants={{
             hidden: {
-              color: textColor,
               rotate: 0,
+              color: "#111111",
               border: "none",
-              borderRadius: 0,
-              x: 0,
+              borderRadius: "0px",
+              width: "1.25rem",
+              height: "1.25rem",
+              padding: "0px",
             },
             reveal: {
-              color: "#02C986",
               rotate: -45,
-              border: "2px solid #02C986",
+              color: "#02C986",
+              border: `2px solid #02C986`,
               borderRadius: "999px",
-              x: -(element?.target?.firstChild?.clientWidth + 8),
+              width: "2rem",
+              height: "2rem",
+              padding: "2px",
             },
           }}
           transition={{ duration: 0.5, type: "spring", damping: 8 }}
         >
-          <East id={`icon${id}`} />
+          <East />
         </motion.svg>
       </motion.button>
       {/* <svg

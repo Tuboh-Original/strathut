@@ -185,7 +185,7 @@ const NewProject = () => {
                         labelPlacement="start"
                         checked={options[service?.title]}
                         onChange={(e) => handleChange(e)}
-                        className={`flex justify-between !ms-0 rounded-s-full rounded-e-full border px-4 text-lg ${
+                        className={`flex justify-between strathut-cursor !ms-0 rounded-s-full rounded-e-full border px-4 text-lg ${
                           options[service?.title]
                             ? "border-secondary text-secondary"
                             : "border-white40 text-white"
@@ -217,14 +217,18 @@ const NewProject = () => {
                   </Button>
                 )}
                 {page < 3 ? (
-                  <StratButton id={"button5"}
+                  <StratButton
+                    id={"button5"}
                     onButton={() => handleNext()}
                     className="border-[6px] border-opacity-40 border-gray-500 backdrop-blur-[15px]"
                   >
                     Next
                   </StratButton>
                 ) : (
-                  <StratButton id={"button6"} className="border-[6px] border-opacity-40 border-gray-500 backdrop-blur-[15px]">
+                  <StratButton
+                    id={"button6"}
+                    className="border-[6px] border-opacity-40 border-gray-500 backdrop-blur-[15px]"
+                  >
                     Send
                   </StratButton>
                 )}

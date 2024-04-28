@@ -55,7 +55,7 @@ const CaseStudy = () => {
               {[0, 1, 2, 3].map((ind) => (
                 <Box
                   key={ind}
-                  className="studyCard py-3 border-t border-t-secondary"
+                  className="studyCard opacity-0 py-3 border-t border-t-secondary"
                 >
                   <p>20% Lorem ipsum dolor sit amet consectetur.</p>
                 </Box>
