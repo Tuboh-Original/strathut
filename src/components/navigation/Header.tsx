@@ -121,6 +121,16 @@ const Header = () => {
     closed: { rotate: 0 },
   };
 
+  React.useEffect(() => {
+    if (isOpen) {
+      document.body.classList.remove("overflow-hidden");
+      document.body.classList.add("overflow-auto");
+    } else {
+      document.body.classList.remove("overflow-auto");
+      document.body.classList.add("overflow-hidden");
+    }
+  }, [isOpen]);
+
   return (
     <Box className="absolute left-0 right-0 top-0 text-white w-full flex justify-center bg-[#111111]">
       <nav className="max-w-[1440px] px-4 md:px-10 py-6 w-full flex items-center justify-between">
@@ -239,20 +249,7 @@ const Header = () => {
             ))}
           </div>
           <div ref={containerRef} className="sm:hidden">
-            <Hamburger
-              toggled={isOpen}
-              size={20}
-              toggle={() => {
-                if (isOpen) {
-                  document.body.classList.remove("overflow-hidden");
-                  document.body.classList.add("overflow-auto");
-                } else {
-                  document.body.classList.remove("overflow-auto");
-                  document.body.classList.add("overflow-hidden");
-                }
-                toggleOpen(!isOpen);
-              }}
-            />
+            <Hamburger toggled={isOpen} size={20} toggle={toggleOpen} />
             <AnimatePresence>
               {isOpen && (
                 <motion.div
