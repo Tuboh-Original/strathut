@@ -127,8 +127,8 @@ function App() {
   }, []);
   return (
     <ThemeProvider theme={responsiveFontSizes(theme)}>
-      <div id="cursor-ball" className="cursor-ball"></div>
-      <div id="cursor-outline" className="cursor-outline"></div>
+      <div id="cursor-ball" className="cursor-ball hidden sm:block"></div>
+      <div id="cursor-outline" className="cursor-outline hidden sm:block"></div>
       <BrowserRouter>
         <Routes>
           <Route element={<AppLayout />}>
