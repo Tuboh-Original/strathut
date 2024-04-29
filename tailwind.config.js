@@ -15,6 +15,7 @@ export default {
         white40: "rgba(255, 255, 255, 0.40)",
         black50: "rgba(0, 0, 0, 0.50)",
         secondary15: "rgba(2, 201, 134, 0.15)",
+        secondary10: "rgba(2, 201, 134, 0.10)",
         secondary0: "rgba(2, 201, 134, 0)",
       },
       backgroundImage: {

@@ -3,35 +3,118 @@ import logo from "../../assets/icons/logoWhite.svg";
 import East from "@mui/icons-material/East";
 import { useNavigate } from "react-router-dom";
 import React from "react";
-import Menu from "@mui/material/Menu";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import MenuItem from "@mui/material/MenuItem";
 import { motion } from "framer-motion";
+import { SvgIconTypeMap } from "@mui/material";
+import WebIcon from "@mui/icons-material/Web";
+import AppsIcon from "@mui/icons-material/Apps";
+import MarginIcon from "@mui/icons-material/Margin";
+import BrandingWatermarkIcon from "@mui/icons-material/BrandingWatermark";
+import CategoryIcon from "@mui/icons-material/Category";
 
 const links: { title: string; link: string }[] = [
   { title: "Work", link: "" },
   { title: "About", link: "/about" },
 ];
 
-const serviceLinks: { title: string; link: string }[] = [
-  { title: "Web Development", link: "/web-development" },
-  { title: "UI/UX design", link: "/ui-ux-design" },
-  { title: "Product Development", link: "/product-development" },
-  { title: "Brand Development", link: "/brand-development" },
-  { title: "App Development", link: "/app-development" },
+const serviceLinks: { title: string; link: string; icon?: SvgIconTypeMap }[] = [
+  { title: "Web Development", link: "/web-development", icon: WebIcon },
+  { title: "UI/UX design", link: "/ui-ux-design", icon: MarginIcon },
+  {
+    title: "Product Development",
+    link: "/product-development",
+    icon: CategoryIcon,
+  },
+  {
+    title: "Brand Development",
+    link: "/brand-development",
+    icon: BrandingWatermarkIcon,
+  },
+  { title: "App Development", link: "/app-development", icon: AppsIcon },
 ];
+
+const wrapperVariants = {
+  open: {
+    scaleY: 1,
+    transition: {
+      when: "beforeChildren",
+      staggerChildren: 0.1,
+    },
+  },
+  closed: {
+    scaleY: 0,
+    transition: {
+      when: "afterChildren",
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const iconVariants = {
+  open: { rotate: 90 },
+  closed: { rotate: 0 },
+};
+
+const itemVariants = {
+  open: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      when: "beforeChildren",
+    },
+  },
+  closed: {
+    opacity: 0,
+    y: -15,
+    transition: {
+      when: "afterChildren",
+    },
+  },
+};
+
+const actionIconVariants = {
+  open: { scale: 1, y: 0 },
+  closed: { scale: 0, y: -7 },
+};
 
 const Header = () => {
   const navigate = useNavigate();
 
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
+  const [open, setOpen] = React.useState(false);
+
+  // const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  // const open = Boolean(anchorEl);
+  // const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  //   setAnchorEl(event.currentTarget);
+  // };
+  // const handleClose = () => {
+  //   setAnchorEl(null);
+  // };
+
+  const Option = ({
+    text,
+    Icon,
+    link,
+  }: {
+    text?: string;
+    Icon?: SvgIconTypeMap;
+    link: string;
+  }) => {
+    return (
+      <motion.li
+        variants={itemVariants}
+        onClick={() => {
+          setOpen(false);
+          navigate(link);
+        }}
+        className="flex items-center gap-2 w-full p-2 text-sm font-medium whitespace-nowrap rounded-md hover:bg-secondary10 text-slate-700 hover:text-secondary transition-colors"
+      >
+        <motion.span className="text-xs" variants={actionIconVariants}>
+          <Icon />
+        </motion.span>
+        <span>{text}</span>
+      </motion.li>
+    );
   };
 
   return (
@@ -60,94 +143,50 @@ const Header = () => {
             />
           </div>
           <div className="items-center gap-4 mt-2 hidden sm:flex">
-            <motion.button
-              id={"button10"}
-              className={`strathut-cursor !text-xl !capitalize flex gap-1 items-center ${
-                open ? "text-secondary" : "text-white"
-              }`}
-              aria-controls={open ? "basic-menu" : undefined}
-              aria-haspopup="true"
-              aria-expanded={open ? "true" : undefined}
-              onClick={handleClick}
-              initial="hidden"
-              animate="hidden"
+            <motion.div
+              animate={open ? "open" : "closed"}
               whileHover={"reveal"}
-              whileTap={"click"}
+              className="relative"
             >
-              <motion.p
-                variants={{
-                  hidden: {
-                    color: open ? "02C986" : "#fff",
-                  },
-                  reveal: {
-                    color: "#02C986",
-                  },
-                  click: {
-                    color: "#02C986",
-                  },
-                }}
-                transition={{ duration: 0.5 }}
+              <motion.button
+                onClick={() => setOpen((pv) => !pv)}
+                className="flex items-center gap-2rounded-md text-white text-xl hover:text-secondary transition-colors"
               >
-                Services
-              </motion.p>
-              <motion.svg
-                width={"1.25rem"}
-                height={"1.25rem"}
-                variants={{
-                  hidden: {
-                    color: open ? "02C986" : "#fff",
-                    rotate: 0,
-                  },
-                  reveal: {
-                    color: "#02C986",
-                    rotate: 90,
-                  },
-                  click: {
-                    color: "#02C986",
-                    rotate: 90,
-                  },
-                }}
-                transition={{ duration: 0.5, type: "spring", damping: 8 }}
+                <span>Services</span>
+                <motion.span
+                  className="h-[24px] flex items-center"
+                  variants={iconVariants}
+                >
+                  <KeyboardArrowRightIcon />
+                </motion.span>
+
+                <motion.div
+                  className="border-b-2 border-b-secondary w-0 absolute bottom-0 left-0 h-[calc(100%+6px)]"
+                  variants={{
+                    hidden: { width: "0%" },
+                    reveal: { width: "100%" },
+                    exit: { width: "-100%" },
+                  }}
+                  transition={{ duration: 0.5, type: "spring", damping: 8 }}
+                ></motion.div>
+              </motion.button>
+
+              <motion.ul
+                initial={wrapperVariants.closed}
+                variants={wrapperVariants}
+                style={{ originY: "top", translateX: "-50%" }}
+                className="flex flex-col gap-2 p-2 rounded-lg bg-[#fff] shadow-xl absolute top-[120%] left-[52%] w-48 overflow-hidden"
               >
-                {open ? <KeyboardArrowDownIcon /> : <KeyboardArrowRightIcon />}
-              </motion.svg>
-            </motion.button>
-            <Menu
-              id="basic-menu"
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              MenuListProps={{
-                "aria-labelledby": "basic-button",
-              }}
-              PaperProps={{
-                elevation: 0,
-                sx: {
-                  overflow: "visible",
-                  backgroundColor: "#111111",
-                  "&::before": {
-                    color: "#fff",
-                  },
-                },
-              }}
-              // transformOrigin={{ horizontal: "left", vertical: "top" }}
-              // anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
-            >
-              {serviceLinks?.map((link, ind) => (
-                <MenuItem key={ind} className="hover:!text-secondary">
-                  <div
-                    onClick={() => navigate(link?.link)}
-                    className={`strathut-cursor !text-xl hover:!text-secondary ${
-                      window.location.pathname === link?.link
-                        ? "text-secondary"
-                        : "text-white"
-                    }`}
-                  >
-                    {link?.title}
-                  </div>
-                </MenuItem>
-              ))}
-            </Menu>
+                {serviceLinks?.map((link, ind) => (
+                  <Option
+                    key={ind}
+                    link={link?.link}
+                    Icon={link?.icon}
+                    text={link?.title}
+                  />
+                ))}
+              </motion.ul>
+            </motion.div>
             {links?.map((link, ind) => (
               <motion.div
                 key={ind}
