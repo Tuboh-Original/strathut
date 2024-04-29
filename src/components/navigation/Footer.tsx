@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const services = [
-  "web design",
-  "mobile app development",
-  "branding",
+  "web development",
+  "app development",
+  "brand development",
   "Product Development",
 ];
 const contact = ["+234 813 516 5814", "hello@strathut.com"];

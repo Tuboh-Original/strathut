@@ -4,8 +4,12 @@ import Process from "../components/common/Process";
 import Services from "../components/common/Services";
 import Partners from "../components/common/Partners";
 import Footer from "../components/navigation/Footer";
+import React from "react";
 
 const AboutPage = () => {
+  React.useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  });
   return (
     <Box className="flex flex-col w-full">
       {/* Hero */}

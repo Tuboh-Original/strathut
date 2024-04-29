@@ -55,6 +55,9 @@ const NewProject = () => {
     });
     console.log(options);
   };
+  React.useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  });
 
   return (
     <Box className="flex flex-col w-full">

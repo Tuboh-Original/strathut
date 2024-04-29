@@ -10,7 +10,7 @@ import Port4 from "../../assets/images/portfolio4.png";
 import Port5 from "../../assets/images/portfolio5.png";
 import Port6 from "../../assets/images/portfolio6.png";
 import Port7 from "../../assets/images/portfolio7.png";
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 import React from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
@@ -78,6 +78,9 @@ const Slides2 = [
 ];
 
 const ProDev = () => {
+  React.useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  });
   React.useEffect(() => {
     ScrollTrigger.batch(".studyCard", {
       interval: 0.1, // time window (in seconds) for batching to occur. The first callback that occurs (of its type) will start the timer, and when it elapses, any other similar callbacks for other targets will be batched into an array and fed to the callback. Default is 0.1
@@ -118,18 +121,26 @@ const ProDev = () => {
               From Vision to Reality: Crafting Innovative Products for Your
               Success
             </p>
-            <p data-aos="fade-left" className="text-2xl sm:text-3xl text-textBody leading-7 sm:leading-[2.75rem]">
+            <p
+              data-aos="fade-left"
+              className="text-2xl sm:text-3xl text-textBody leading-7 sm:leading-[2.75rem]"
+            >
               Our process is designed for your success. It's designed for
               successful collaboration, transparency and efficiency.
             </p>
           </Box>
           <Box className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-12 sm:gap-y-24 w-full">
             {Processes?.map((serv, ind) => (
-              <Box key={ind} className={`studyCard opacity-0 flex flex-col gap-3 sm:gap-5 p-2 sm:p-8`}>
+              <Box
+                key={ind}
+                className={`studyCard opacity-0 flex flex-col gap-3 sm:gap-5 p-2 sm:p-8`}
+              >
                 <p className={`text-secondary text-3xl sm:text-4xl font-bold`}>
                   {serv?.id}
                 </p>
-                <p className={`font-medium text-4xl sm:text-6xl`}>{serv?.title}</p>
+                <p className={`font-medium text-4xl sm:text-6xl`}>
+                  {serv?.title}
+                </p>
                 <p className={`text-lg font-light`}>{serv?.desc}</p>
               </Box>
             ))}

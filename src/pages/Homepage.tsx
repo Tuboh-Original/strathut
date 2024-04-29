@@ -14,6 +14,9 @@ import gsap from "gsap";
 
 const Homepage = () => {
   const navigate = useNavigate();
+  React.useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  });
   React.useEffect(() => {
     ScrollTrigger.batch(".studyCard", {
       interval: 0.1, // time window (in seconds) for batching to occur. The first callback that occurs (of its type) will start the timer, and when it elapses, any other similar callbacks for other targets will be batched into an array and fed to the callback. Default is 0.1
@@ -62,7 +65,7 @@ const Homepage = () => {
       {/* Case studies */}
       <Box className="max-w-[1440px] self-center py-16 sm:py-28 2xl:py-36 px-4 md:px-12 flex flex-col gap-16 items-center">
         <Box className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <p className="text-7xl font-medium text-center sm:text-left">
+          <p className="text-7xl font-medium">
             Case Studies
           </p>
           <p

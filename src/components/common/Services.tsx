@@ -75,7 +75,7 @@ const Services = () => {
     <Box className="py-16 sm:py-28 2xl:py-36 px-4 md:px-12 flex flex-col items-center bg-gradientPrimary2 w-full">
       <Box className="max-w-[1440px] flex flex-col gap-10 sm:gap-16 items-center w-full">
         <p className="text-5xl sm:text-7xl font-medium w-full">Our Services</p>
-        <Box className="grid grid-cols-1 sm:grid-cols-2 gap-12 sm:gap-20 w-full items-center">
+        <Box className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-20 w-full items-center">
           <Box className={`flex flex-col gap-4 sm:gap-9 md:py-4`}>
             {services?.map((serv, ind) => (
               <Box key={ind} className={`flex flex-col gap-4`}>
@@ -99,7 +99,7 @@ const Services = () => {
                     }`}
                   >{`0${ind + 1}`}</p>
                   <p
-                    className={`font-semibold text-4xl sm:text-6xl transition-all duration-700 ease-in-out ${
+                    className={`font-semibold text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl transition-all duration-700 ease-in-out ${
                       selectedService === ind
                         ? "text-secondary"
                         : "text-textBody"
@@ -114,11 +114,11 @@ const Services = () => {
                   easing={"cubic-bezier(0.4, 0, 0.2, 1)"}
                   className="flex flex-col gap-6"
                 >
-                  <div className="flex gap-4">
+                  <div className="flex gap-4 flex-wrap">
                     {serv?.tags?.map((tag, ind) => (
                       <div
                         key={ind}
-                        className="studyCard py-2 px-5 border border-white40 rounded-s-full rounded-e-full bg-transparent capitalize text-white hover:border-secondary hover:text-secondary"
+                        className="md:studyCard py-2 px-5 border border-white40 rounded-s-full rounded-e-full bg-transparent capitalize text-white hover:border-secondary hover:text-secondary"
                       >
                         {tag}
                       </div>
@@ -133,22 +133,54 @@ const Services = () => {
                   >
                     {serv?.description}
                   </p>
+                  <Box
+                    className={`w-full h-fit mt-4 rounded-xl sm:rounded-3xl transition-all duration-700 flex lg:hidden items-center ease-in-out hover:border hover:border-white30 hover:p-2 hover:sm:p-8`}
+                  >
+                    <motion.div
+                      className="w-full h-[28rem] rounded-lg sm:rounded-2xl duration-500 hover:cursor-grabbing"
+                      style={{
+                        backgroundImage: `url(${services[selectedService]?.image})`,
+                        backgroundSize: "cover",
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "center",
+                      }}
+                      drag
+                      dragConstraints={{
+                        top: -10,
+                        right: 10,
+                        left: -10,
+                        bottom: 10,
+                      }}
+                      dragTransition={{
+                        bounceStiffness: 600,
+                        bounceDamping: 10,
+                      }}
+                    ></motion.div>
+                  </Box>
                 </Collapse>
               </Box>
             ))}
           </Box>
           <Box
-            className={`w-full h-full rounded-xl sm:rounded-3xl transition-all duration-700 flex items-center ease-in-out hover:border hover:border-white30 hover:p-2 hover:sm:p-8`}
+            className={`w-full h-full rounded-xl sm:rounded-3xl transition-all duration-700 hidden lg:flex items-center ease-in-out hover:border hover:border-white30 hover:p-2 hover:sm:p-8`}
           >
-            <Box
-              className="w-full h-full min-h-[28rem] md:min-h-[42rem] rounded-lg sm:rounded-2xl duration-500"
+            <motion.div
+              className="w-full h-full min-h-[28rem] md:min-h-[42rem] rounded-lg sm:rounded-2xl duration-500 hover:cursor-grabbing"
               style={{
                 backgroundImage: `url(${services[selectedService]?.image})`,
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
               }}
-            ></Box>
+              drag
+              dragConstraints={{
+                top: -10,
+                right: 10,
+                left: -10,
+                bottom: 10,
+              }}
+              dragTransition={{ bounceStiffness: 600, bounceDamping: 10 }}
+            ></motion.div>
           </Box>
         </Box>
         <Box className="flex flex-col w-full mt-24">

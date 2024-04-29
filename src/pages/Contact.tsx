@@ -10,14 +10,20 @@ import {
 import StratButton from "../components/common/Button";
 import Partners from "../components/common/Partners";
 import Footer from "../components/navigation/Footer";
+import React from "react";
 
 const Contact = () => {
+  React.useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  });
   return (
     <Box className="flex flex-col w-full">
       <Box className="flex flex-col items-center bg-gradientPrimary2 overflow-clip">
         <Box className="max-w-[1440px] flex flex-col items-center py-16 sm:py-28 2xl:py-36 px-4 md:px-12 gap-16 w-full">
           <Box className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-12">
-            <p className="text-6xl sm:text-7xl font-medium">We'd love to hear from you</p>
+            <p className="text-6xl sm:text-7xl font-medium">
+              We'd love to hear from you
+            </p>
             <p className="text-2xl sm:text-3xl leading-7 text-textBody sm:leading-[2.75rem]">
               Contact us regarding any concerns and inquiries.
             </p>
@@ -99,7 +105,10 @@ const Contact = () => {
                   multiline
                   maxRows={4}
                 />
-                <StratButton id={"button4"} className="mt-24 mx-auto border-[6px] border-opacity-40 border-gray-500 backdrop-blur-[15px]">
+                <StratButton
+                  id={"button4"}
+                  className="mt-24 mx-auto border-[6px] border-opacity-40 border-gray-500 backdrop-blur-[15px]"
+                >
                   Send
                 </StratButton>
               </Box>

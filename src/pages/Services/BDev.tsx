@@ -78,6 +78,9 @@ const Slides2 = [
 ];
 
 const BrandDev = () => {
+  React.useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  });
   React.useEffect(() => {
     ScrollTrigger.batch(".studyCard", {
       interval: 0.1, // time window (in seconds) for batching to occur. The first callback that occurs (of its type) will start the timer, and when it elapses, any other similar callbacks for other targets will be batched into an array and fed to the callback. Default is 0.1

@@ -10,7 +10,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { motion } from "framer-motion";
 
 const links: { title: string; link: string }[] = [
-  { title: "Work", link: "/work" },
+  { title: "Work", link: "" },
   { title: "About", link: "/about" },
 ];
 
@@ -38,7 +38,10 @@ const Header = () => {
     <Box className="absolute left-0 right-0 top-0 text-white w-full flex justify-center bg-[#111111]">
       <nav className="max-w-[1440px] px-4 md:px-10 py-6 w-full flex items-center justify-between">
         <Box className="flex gap-16 items-center">
-          <a href={"/"} className="strathut-cursor h-fit w-full max-w-32">
+          <div
+            onClick={() => navigate("/")}
+            className="strathut-cursor h-fit w-full max-w-32"
+          >
             <motion.img
               src={logo}
               alt="Strathut white logo"
@@ -55,7 +58,7 @@ const Header = () => {
               }}
               transition={{ duration: 1, type: "tween" }}
             />
-          </a>
+          </div>
           <div className="items-center gap-4 mt-2 hidden sm:flex">
             <motion.button
               id={"button10"}
@@ -132,8 +135,8 @@ const Header = () => {
             >
               {serviceLinks?.map((link, ind) => (
                 <MenuItem key={ind} className="hover:!text-secondary">
-                  <a
-                    href={link?.link}
+                  <div
+                    onClick={() => navigate(link?.link)}
                     className={`strathut-cursor !text-xl hover:!text-secondary ${
                       window.location.pathname === link?.link
                         ? "text-secondary"
@@ -141,7 +144,7 @@ const Header = () => {
                     }`}
                   >
                     {link?.title}
-                  </a>
+                  </div>
                 </MenuItem>
               ))}
             </Menu>
