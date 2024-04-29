@@ -260,7 +260,7 @@ const Header = () => {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.2 }}
-                  className="fixed left-0 shadow-4xl right-0 top-[5rem] p-5 pt-0 bg-gradientPrimary2 h-[calc(100%-6rem)] z-20 overflow-clip"
+                  className="fixed left-0 shadow-4xl right-0 top-[5rem] p-5 pt-0 bg-gradientPrimary2 h-[calc(100%-3rem)] z-20 overflow-clip"
                 >
                   <div className="flex gap-4 justify-end flex-col h-full pb-24">
                     <motion.div
