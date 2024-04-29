@@ -3,7 +3,7 @@ import {
   ThemeProvider,
   responsiveFontSizes,
 } from "@mui/material/styles";
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
 import AppLayout from "./Layouts/AppLayout";
 import Homepage from "./pages/Homepage";
@@ -25,6 +25,7 @@ import AppDev from "./pages/Services/ADev";
 import ProDev from "./pages/Services/PDev";
 import BrandDev from "./pages/Services/BDev";
 import { useEffect } from "react";
+import { AnimatePresence } from "framer-motion";
 
 gsap.registerPlugin(useGSAP, MotionPathPlugin, ScrollTrigger);
 
@@ -43,6 +44,7 @@ const theme = createTheme({
 });
 
 function App() {
+  const location = useLocation();
   // const cursorBall = document.querySelector("#cursor-ball");
   // const cursorOutline = document.querySelector("#cursor-outline");
 
@@ -88,49 +90,13 @@ function App() {
       cursorOutline!.style.top = e.pageY + "px";
       cursorOutline!.style.left = e.pageX + "px";
     });
-
-    // (function () {
-    //   let follower, init, mouseX, mouseY, positionElement, printout, timer;
-
-    //   follower = document.getElementById("follower");
-
-    //   printout = document.getElementById("printout");
-
-    //   mouseX = (event) => {
-    //     return event.pageX;
-    //   };
-
-    //   mouseY = (event) => {
-    //     return event.pageY;
-    //   };
-
-    //   positionElement = (event) => {
-    //     let mouse;
-    //     mouse = {
-    //       x: mouseX(event),
-    //       y: mouseY(event),
-    //     };
-    //     follower.style.top = mouse.y + "px";
-    //     return (follower.style.left = mouse.x + "px");
-    //   };
-
-    //   timer = false;
-
-    //   window.onmousemove = init = (event) => {
-    //     let _event;
-    //     _event = event;
-    //     return (timer = setTimeout(() => {
-    //       return positionElement(_event);
-    //     }, 1));
-    //   };
-    // }).call(this);
   }, []);
   return (
     <ThemeProvider theme={responsiveFontSizes(theme)}>
       <div id="cursor-ball" className="cursor-ball hidden sm:block"></div>
       <div id="cursor-outline" className="cursor-outline hidden sm:block"></div>
-      <BrowserRouter>
-        <Routes>
+      <AnimatePresence>
+        <Routes location={location} key={location.pathname}>
           <Route element={<AppLayout />}>
             <Route index path="/" element={<Homepage />} />
             <Route path="/about" element={<AboutPage />} />
@@ -145,7 +111,7 @@ function App() {
             <Route path="/ui-ux-design" element={<UDesign />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </AnimatePresence>
     </ThemeProvider>
   );
 }

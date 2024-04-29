@@ -84,7 +84,7 @@ const Header = () => {
   const containerRef = React.useRef(null);
   const servicesRef = React.useRef(null);
 
-  useClickAway(containerRef, () => setOpen(false));
+  useClickAway(containerRef, () => toggleOpen(false));
   useClickAway(servicesRef, () => setOpen(false));
 
   const Option = ({
@@ -122,7 +122,7 @@ const Header = () => {
   };
 
   React.useEffect(() => {
-    if (isOpen) {
+    if (!isOpen) {
       document.body.classList.remove("overflow-hidden");
       document.body.classList.add("overflow-auto");
     } else {
@@ -160,7 +160,10 @@ const Header = () => {
               transition={{ duration: 1, type: "tween" }}
             />
           </div>
-          <div className="items-center gap-4 mt-2 hidden sm:flex">
+          <div
+            ref={servicesRef}
+            className="items-center gap-4 mt-2 hidden sm:flex"
+          >
             <motion.div
               animate={open ? "open" : "closed"}
               whileHover={"reveal"}
