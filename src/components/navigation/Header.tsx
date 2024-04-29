@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import React from "react";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import { motion } from "framer-motion";
-import { SvgIconTypeMap } from "@mui/material";
+import { SvgIconComponent } from "@mui/icons-material";
 import WebIcon from "@mui/icons-material/Web";
 import AppsIcon from "@mui/icons-material/Apps";
 import MarginIcon from "@mui/icons-material/Margin";
@@ -17,21 +17,22 @@ const links: { title: string; link: string }[] = [
   { title: "About", link: "/about" },
 ];
 
-const serviceLinks: { title: string; link: string; icon?: SvgIconTypeMap }[] = [
-  { title: "Web Development", link: "/web-development", icon: WebIcon },
-  { title: "UI/UX design", link: "/ui-ux-design", icon: MarginIcon },
-  {
-    title: "Product Development",
-    link: "/product-development",
-    icon: CategoryIcon,
-  },
-  {
-    title: "Brand Development",
-    link: "/brand-development",
-    icon: BrandingWatermarkIcon,
-  },
-  { title: "App Development", link: "/app-development", icon: AppsIcon },
-];
+const serviceLinks: { title: string; link: string; icon?: SvgIconComponent }[] =
+  [
+    { title: "Web Development", link: "/web-development", icon: WebIcon },
+    { title: "UI/UX design", link: "/ui-ux-design", icon: MarginIcon },
+    {
+      title: "Product Development",
+      link: "/product-development",
+      icon: CategoryIcon,
+    },
+    {
+      title: "Brand Development",
+      link: "/brand-development",
+      icon: BrandingWatermarkIcon,
+    },
+    { title: "App Development", link: "/app-development", icon: AppsIcon },
+  ];
 
 const wrapperVariants = {
   open: {
@@ -97,7 +98,7 @@ const Header = () => {
     link,
   }: {
     text?: string;
-    Icon?: SvgIconTypeMap;
+    Icon?: SvgIconComponent;
     link: string;
   }) => {
     return (
