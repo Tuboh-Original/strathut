@@ -4,13 +4,15 @@ import East from "@mui/icons-material/East";
 import { useNavigate } from "react-router-dom";
 import React from "react";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { SvgIconComponent } from "@mui/icons-material";
 import WebIcon from "@mui/icons-material/Web";
 import AppsIcon from "@mui/icons-material/Apps";
 import MarginIcon from "@mui/icons-material/Margin";
 import BrandingWatermarkIcon from "@mui/icons-material/BrandingWatermark";
 import CategoryIcon from "@mui/icons-material/Category";
+import { useClickAway } from "react-use";
+import { Squash as Hamburger } from "hamburger-react";
 
 const links: { title: string; link: string }[] = [
   { title: "Work", link: "" },
@@ -51,11 +53,6 @@ const wrapperVariants = {
   },
 };
 
-const iconVariants = {
-  open: { rotate: 90 },
-  closed: { rotate: 0 },
-};
-
 const itemVariants = {
   open: {
     opacity: 1,
@@ -83,14 +80,12 @@ const Header = () => {
 
   const [open, setOpen] = React.useState(false);
 
-  // const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  // const open = Boolean(anchorEl);
-  // const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-  //   setAnchorEl(event.currentTarget);
-  // };
-  // const handleClose = () => {
-  //   setAnchorEl(null);
-  // };
+  const [isOpen, toggleOpen] = React.useState(false);
+  const containerRef = React.useRef(null);
+  const servicesRef = React.useRef(null);
+
+  useClickAway(containerRef, () => setOpen(false));
+  useClickAway(servicesRef, () => setOpen(false));
 
   const Option = ({
     text,
@@ -106,9 +101,12 @@ const Header = () => {
         variants={itemVariants}
         onClick={() => {
           setOpen(false);
+          toggleOpen(false);
           navigate(link);
         }}
-        className="flex items-center gap-2 w-full p-2 text-sm font-medium whitespace-nowrap rounded-md hover:bg-secondary10 text-slate-700 hover:text-secondary transition-colors"
+        className={`flex items-center gap-2 w-full p-2 text-sm font-medium whitespace-nowrap rounded-md hover:bg-secondary10 ${
+          isOpen ? "text-white" : "text-slate-700"
+        } hover:text-secondary transition-colors`}
       >
         <motion.span className="text-xs" variants={actionIconVariants}>
           <Icon />
@@ -118,12 +116,21 @@ const Header = () => {
     );
   };
 
+  const iconVariants = {
+    open: { rotate: isOpen ? -90 : 90 },
+    closed: { rotate: 0 },
+  };
+
   return (
     <Box className="absolute left-0 right-0 top-0 text-white w-full flex justify-center bg-[#111111]">
       <nav className="max-w-[1440px] px-4 md:px-10 py-6 w-full flex items-center justify-between">
-        <Box className="flex gap-16 items-center">
+        <Box className="flex justify-between sm:justify-normal sm:gap-16 items-center w-full">
           <div
-            onClick={() => navigate("/")}
+            onClick={() => {
+              setOpen(false);
+              toggleOpen(false);
+              navigate("/");
+            }}
             className="strathut-cursor h-fit w-full max-w-32"
           >
             <motion.img
@@ -147,7 +154,7 @@ const Header = () => {
             <motion.div
               animate={open ? "open" : "closed"}
               whileHover={"reveal"}
-              className="relative"
+              className="relative "
             >
               <motion.button
                 onClick={() => setOpen((pv) => !pv)}
@@ -230,6 +237,134 @@ const Header = () => {
                 ></motion.div>
               </motion.div>
             ))}
+          </div>
+          <div ref={containerRef} className="sm:hidden">
+            <Hamburger
+              toggled={isOpen}
+              size={20}
+              toggle={() => {
+                if (isOpen) {
+                  document.body.classList.remove("overflow-hidden");
+                  document.body.classList.add("overflow-auto");
+                } else {
+                  document.body.classList.remove("overflow-auto");
+                  document.body.classList.add("overflow-hidden");
+                }
+                toggleOpen(!isOpen);
+              }}
+            />
+            <AnimatePresence>
+              {isOpen && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="fixed left-0 shadow-4xl right-0 top-[5rem] p-5 pt-0 bg-gradientPrimary2 h-[100%] z-20 overflow-clip"
+                >
+                  <div className="flex gap-4 justify-end flex-col h-full pb-24">
+                    <motion.div
+                      animate={open ? "open" : "closed"}
+                      whileHover={"reveal"}
+                      className="relative "
+                    >
+                      <motion.button
+                        onClick={() => setOpen((pv) => !pv)}
+                        className="flex items-center gap-2rounded-md text-white text-6xl hover:text-secondary transition-colors w-fit"
+                      >
+                        <span>Services</span>
+                        <motion.span
+                          className="h-[60px] flex items-center"
+                          variants={iconVariants}
+                        >
+                          <KeyboardArrowRightIcon />
+                        </motion.span>
+
+                        <motion.div
+                          className="border-b-2 border-b-secondary w-0 absolute bottom-0 left-0 h-[calc(100%+6px)]"
+                          variants={{
+                            hidden: { width: "0%" },
+                            reveal: { width: "100%" },
+                            exit: { width: "-100%" },
+                          }}
+                          transition={{
+                            duration: 0.5,
+                            type: "spring",
+                            damping: 8,
+                          }}
+                        ></motion.div>
+                      </motion.button>
+
+                      <motion.ul
+                        initial={wrapperVariants.closed}
+                        variants={wrapperVariants}
+                        style={{ originY: "top", translateX: "-50%" }}
+                        className="flex flex-col gap-2 rounded-lg bg-[#111111] shadow-xl absolute bottom-[120%] left-[50%] w-full overflow-hidden"
+                      >
+                        {serviceLinks?.map((link, ind) => (
+                          <Option
+                            key={ind}
+                            link={link?.link}
+                            Icon={link.icon}
+                            text={link?.title}
+                          />
+                        ))}
+                      </motion.ul>
+                    </motion.div>
+                    {links?.map((link, ind) => (
+                      <motion.div
+                        key={ind}
+                        initial="hidden"
+                        animate="hidden"
+                        exit={"exit"}
+                        whileHover={"reveal"}
+                        className="w-fit h-fit relative py-1"
+                        onClick={() => {
+                          setOpen(false);
+                          toggleOpen(false);
+                          navigate(link?.link);
+                        }}
+                      >
+                        <motion.a
+                          id={`link${ind}`}
+                          className={`strathut-cursor text-6xl mx-1 flex flex-col w-fit relative ${
+                            window.location.pathname === link?.link
+                              ? "text-secondary"
+                              : "text-white"
+                          }`}
+                          variants={{
+                            hidden: {
+                              color:
+                                window.location.pathname === link?.link
+                                  ? "#02C986"
+                                  : "#fff",
+                            },
+                            reveal: { color: "#02C986" },
+                          }}
+                          transition={{ duration: 0.5 }}
+                        >
+                          {link?.title}
+                        </motion.a>
+                        <motion.div
+                          id={`linkUnderline${ind}`}
+                          className="border-b-2 border-b-secondary w-0 absolute bottom-0 left-0 h-[calc(100%+6px)]"
+                          variants={{
+                            hidden: { width: "0%" },
+                            reveal: { width: "100%" },
+                            exit: { width: "-100%" },
+                          }}
+                          transition={{
+                            duration: 0.5,
+                            type: "spring",
+                            damping: 8,
+                          }}
+                        ></motion.div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </Box>
         <motion.button

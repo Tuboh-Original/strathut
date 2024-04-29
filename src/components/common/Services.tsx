@@ -99,7 +99,7 @@ const Services = () => {
                     }`}
                   >{`0${ind + 1}`}</p>
                   <p
-                    className={`font-semibold text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl transition-all duration-700 ease-in-out ${
+                    className={`font-semibold text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl transition-all duration-700 ease-in-out text-left ${
                       selectedService === ind
                         ? "text-secondary"
                         : "text-textBody"
