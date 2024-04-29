@@ -17,7 +17,7 @@ const links: { title: string; link: string }[] = [
   { title: "About", link: "/about" },
 ];
 
-const serviceLinks: { title: string; link: string; icon?: SvgIconComponent }[] =
+const serviceLinks: { title: string; link: string; icon: SvgIconComponent }[] =
   [
     { title: "Web Development", link: "/web-development", icon: WebIcon },
     { title: "UI/UX design", link: "/ui-ux-design", icon: MarginIcon },
@@ -98,7 +98,7 @@ const Header = () => {
     link,
   }: {
     text?: string;
-    Icon?: SvgIconComponent;
+    Icon: SvgIconComponent;
     link: string;
   }) => {
     return (
@@ -182,7 +182,7 @@ const Header = () => {
                   <Option
                     key={ind}
                     link={link?.link}
-                    Icon={link?.icon}
+                    Icon={link.icon}
                     text={link?.title}
                   />
                 ))}
