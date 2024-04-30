@@ -8,7 +8,7 @@ type PageTransitionProps = {
 const PageTransition: React.FC<PageTransitionProps> = ({ children }) => {
   return (
     <motion.div
-      className="overflow-auto"
+      className="overflow-y-auto overflow-x-hidden"
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       exit={{ scale: 0, opacity: 0 }}

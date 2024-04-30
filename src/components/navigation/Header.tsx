@@ -11,12 +11,18 @@ import AppsIcon from "@mui/icons-material/Apps";
 import MarginIcon from "@mui/icons-material/Margin";
 import BrandingWatermarkIcon from "@mui/icons-material/BrandingWatermark";
 import CategoryIcon from "@mui/icons-material/Category";
-import { useClickAway } from "react-use";
+// import { useClickAway } from "react-use";
 import { Squash as Hamburger } from "hamburger-react";
 
 const links: { title: string; link: string }[] = [
   { title: "Work", link: "" },
   { title: "About", link: "/about" },
+];
+
+const mobileLinks: { title: string; link: string }[] = [
+  { title: "Work", link: "" },
+  { title: "About", link: "/about" },
+  { title: "New Project", link: "/new-project" },
 ];
 
 const serviceLinks: { title: string; link: string; icon: SvgIconComponent }[] =
@@ -81,11 +87,11 @@ const Header = () => {
   const [open, setOpen] = React.useState(false);
 
   const [isOpen, toggleOpen] = React.useState(false);
-  const containerRef = React.useRef(null);
-  const servicesRef = React.useRef(null);
+  // const containerRef = React.useRef(null);
+  // const servicesRef = React.useRef(null);
 
-  useClickAway(containerRef, () => toggleOpen(false));
-  useClickAway(servicesRef, () => setOpen(false));
+  // useClickAway(containerRef, () => toggleOpen(false));
+  // useClickAway(servicesRef, () => setOpen(false));
 
   const Option = ({
     text,
@@ -161,7 +167,7 @@ const Header = () => {
             />
           </div>
           <div
-            ref={servicesRef}
+            // ref={servicesRef}
             className="items-center gap-4 mt-2 hidden sm:flex"
           >
             <motion.div
@@ -251,7 +257,7 @@ const Header = () => {
               </motion.div>
             ))}
           </div>
-          <div ref={containerRef} className="sm:hidden">
+          <div className="sm:hidden">
             <Hamburger toggled={isOpen} size={20} toggle={toggleOpen} />
             <AnimatePresence>
               {isOpen && (
@@ -266,18 +272,18 @@ const Header = () => {
                     <motion.div
                       animate={open ? "open" : "closed"}
                       whileHover={"reveal"}
-                      className="relative "
+                      className="relative w-fit"
                     >
                       <motion.button
                         onClick={() => setOpen((pv) => !pv)}
-                        className="flex items-center gap-2rounded-md text-white text-6xl hover:text-secondary transition-colors w-fit"
+                        className="flex items-center gap-2rounded-md text-white text-4xl hover:text-secondary transition-colors w-fit"
                       >
                         <span>Services</span>
                         <motion.span
-                          className="h-[60px] flex items-center"
+                          className="flex items-center"
                           variants={iconVariants}
                         >
-                          <KeyboardArrowRightIcon />
+                          <KeyboardArrowRightIcon sx={{fontSize:"2rem"}} />
                         </motion.span>
 
                         <motion.div
@@ -311,7 +317,7 @@ const Header = () => {
                         ))}
                       </motion.ul>
                     </motion.div>
-                    {links?.map((link, ind) => (
+                    {mobileLinks?.map((link, ind) => (
                       <motion.div
                         key={ind}
                         initial="hidden"
@@ -327,7 +333,7 @@ const Header = () => {
                       >
                         <motion.a
                           id={`link${ind}`}
-                          className={`strathut-cursor text-6xl mx-1 flex flex-col w-fit relative ${
+                          className={`strathut-cursor text-4xl flex flex-col w-fit relative ${
                             window.location.pathname === link?.link
                               ? "text-secondary"
                               : "text-white"

@@ -100,9 +100,9 @@ const AppDev = () => {
   }, []);
   return (
     <PageTransition>
-      <Box className="flex flex-col w-full items-center">
+      <Box className="flex flex-col w-screen items-center">
         {/* Hero */}
-        <Box className="w-full pt-28 sm:pt-48 pb-20 sm:pb-32 bg-gradientPrimary1 flex flex-col items-center">
+        <Box className="w-screen pt-28 sm:pt-48 pb-20 sm:pb-32 bg-gradientPrimary1 flex flex-col items-center">
           <Box className="max-w-[1440px] flex flex-col items-center">
             <Box className="w-11/12 md:w-4/5 flex flex-col items-center gap-4 sm:gap-6 lg:gap-16 2xl:gap-16 text-center">
               <p className="text-5xl sm:text-8xl lg:text-[10rem] lg:leading-[8rem] font-medium text-center">
@@ -117,8 +117,8 @@ const AppDev = () => {
             </Box>
           </Box>
         </Box>
-        <Box className="w-full py-16 sm:py-28 2xl:py-36 px-4 md:px-12 flex flex-col gap-16 items-center">
-          <Box className="max-w-[1440px] flex flex-col gap-16 items-center">
+        <Box className="w-screen py-16 sm:py-28 2xl:py-36 flex flex-col gap-16 items-center">
+          <Box className="max-w-[1440px] flex flex-col gap-16 items-center  px-4 md:px-12 w-full">
             <Box className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <p className="text-5xl sm:text-7xl font-medium">
                 Innovation in Your Palm: Crafting Apps That Transform Ideas into
@@ -136,7 +136,7 @@ const AppDev = () => {
               {Processes?.map((serv, ind) => (
                 <Box
                   key={ind}
-                  className={`studyCard opacity-0 flex flex-col gap-3 sm:gap-5 p-2 sm:p-8 w-full`}
+                  className={`studyCard opacity-0 flex flex-col gap-3 sm:gap-5 sm:p-8`}
                 >
                   <p
                     className={`text-secondary text-3xl sm:text-4xl font-bold`}
@@ -152,7 +152,7 @@ const AppDev = () => {
             </Box>
           </Box>
         </Box>
-        <Box className="w-full py-16 sm:py-28 2xl:py-36 px-4 md:px-12 flex flex-col gap-16 items-center">
+        <Box className="w-screen py-16 sm:py-28 2xl:py-36 px-4 md:px-12 flex flex-col gap-16 items-center">
           <p className="max-w-[1440px] flex flex-col gap-16 text-5xl sm:text-7xl text-left w-full font-medium">
             App Development <br />
             Portfolios

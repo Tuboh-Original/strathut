@@ -74,7 +74,7 @@ const NewProject = () => {
                 project and we’ll connect with you within 24 hours.
               </p>
             </Box>
-            <Box className="flex flex-col gap-16 my-10 md:my-16 mx-4 sm:mx-12 md:mx-48 lg:mx-80">
+            <Box className="flex flex-col gap-16 my-10 md:my-16 sm:mx-12 md:mx-48 lg:mx-80 w-full">
               <Box className="flex flex-col gap-4">
                 <Box className="grid grid-cols-3 gap-5 w-full">
                   {[1, 2, 3].map((ind) => (

@@ -19,7 +19,7 @@ const Contact = () => {
   });
   return (
     <PageTransition>
-      <Box className="flex flex-col w-full">
+      <Box className="flex flex-col w-screen">
         <Box className="flex flex-col items-center bg-gradientPrimary2 overflow-clip">
           <Box className="max-w-[1440px] flex flex-col items-center py-16 sm:py-28 2xl:py-36 px-4 md:px-12 gap-16 w-full">
             <Box className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-12">

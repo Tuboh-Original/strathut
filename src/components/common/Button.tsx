@@ -81,7 +81,7 @@ const StratButton: React.FC<StratButtonProps> = ({
               rotate: 0,
               color: "#111111",
               border: "none",
-              borderRadius: "0px",
+              borderRadius: "999px",
               width: "1.25rem",
               height: "1.25rem",
               padding: "0px",
