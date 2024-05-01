@@ -3,11 +3,13 @@ import mockup from "../../assets/images/tubohMockup.png";
 import freepik from "../../assets/images/tubohFreepik.png";
 import {
   motion,
-  useScroll,
-  useTransform,
-  useReducedMotion,
+  // useScroll,
+  // useTransform,
+  // useReducedMotion,
 } from "framer-motion";
-import { useRef } from "react";
+// import { useRef } from "react";
+import React from "react";
+import Collapse from "@mui/material/Collapse";
 import quote from "../../assets/icons/quotes.svg";
 import splitStringUsingRegex from "../../utils/splitStringUsingRegex";
 
@@ -63,101 +65,209 @@ const charVariants = {
 };
 
 const Services = () => {
-  // const [selectedService, setSelectedService] = React.useState(0);
+  const [selectedService, setSelectedService] = React.useState(0);
   const quoteChars = splitStringUsingRegex(quoteText);
 
-  const containerRef = useRef(null);
-  const container2Ref = useRef(null);
-  const container3Ref = useRef(null);
-  const container4Ref = useRef(null);
-  const container5Ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end end"],
-  });
-  const { scrollYProgress: scrollYProgress2 } = useScroll({
-    target: container2Ref,
-    offset: ["start end", "end end"],
-  });
-  const { scrollYProgress: scrollYProgress3 } = useScroll({
-    target: container3Ref,
-    offset: ["start end", "end end"],
-  });
-  const { scrollYProgress: scrollYProgress4 } = useScroll({
-    target: container4Ref,
-    offset: ["start end", "end end"],
-  });
-  const { scrollYProgress: scrollYProgress5 } = useScroll({
-    target: container5Ref,
-    offset: ["start end", "end end"],
-  });
+  // const containerRef = useRef(null);
+  // const container2Ref = useRef(null);
+  // const container3Ref = useRef(null);
+  // const container4Ref = useRef(null);
+  // const container5Ref = useRef(null);
+  // const { scrollYProgress } = useScroll({
+  //   target: containerRef,
+  //   offset: ["start end", "end end"],
+  // });
+  // const { scrollYProgress: scrollYProgress2 } = useScroll({
+  //   target: container2Ref,
+  //   offset: ["start end", "end end"],
+  // });
+  // const { scrollYProgress: scrollYProgress3 } = useScroll({
+  //   target: container3Ref,
+  //   offset: ["start end", "end end"],
+  // });
+  // const { scrollYProgress: scrollYProgress4 } = useScroll({
+  //   target: container4Ref,
+  //   offset: ["start end", "end end"],
+  // });
+  // const { scrollYProgress: scrollYProgress5 } = useScroll({
+  //   target: container5Ref,
+  //   offset: ["start end", "end end"],
+  // });
 
-  const bottomShadowValue = useTransform(
-    scrollYProgress,
-    [0, 1],
-    ["-100%", "0%"]
-  );
-  const topShadowValue = useTransform(
-    scrollYProgress,
-    [0, 1],
-    ["-25%", "100%"]
-  );
+  // const bottomShadowValue = useTransform(
+  //   scrollYProgress,
+  //   [0, 1],
+  //   ["-100%", "0%"]
+  // );
+  // const topShadowValue = useTransform(
+  //   scrollYProgress,
+  //   [0, 1],
+  //   ["-25%", "100%"]
+  // );
 
-  const bottomShadowValue2 = useTransform(
-    scrollYProgress2,
-    [0, 1],
-    ["-100%", "0%"]
-  );
-  const topShadowValue2 = useTransform(
-    scrollYProgress2,
-    [0, 1],
-    ["-25%", "100%"]
-  );
+  // const bottomShadowValue2 = useTransform(
+  //   scrollYProgress2,
+  //   [0, 1],
+  //   ["-100%", "0%"]
+  // );
+  // const topShadowValue2 = useTransform(
+  //   scrollYProgress2,
+  //   [0, 1],
+  //   ["-25%", "100%"]
+  // );
 
-  const bottomShadowValue3 = useTransform(
-    scrollYProgress3,
-    [0, 1],
-    ["-100%", "0%"]
-  );
-  const topShadowValue3 = useTransform(
-    scrollYProgress3,
-    [0, 1],
-    ["-25%", "100%"]
-  );
+  // const bottomShadowValue3 = useTransform(
+  //   scrollYProgress3,
+  //   [0, 1],
+  //   ["-100%", "0%"]
+  // );
+  // const topShadowValue3 = useTransform(
+  //   scrollYProgress3,
+  //   [0, 1],
+  //   ["-25%", "100%"]
+  // );
 
-  const bottomShadowValue4 = useTransform(
-    scrollYProgress4,
-    [0, 1],
-    ["-100%", "0%"]
-  );
-  const topShadowValue4 = useTransform(
-    scrollYProgress4,
-    [0, 1],
-    ["-25%", "100%"]
-  );
+  // const bottomShadowValue4 = useTransform(
+  //   scrollYProgress4,
+  //   [0, 1],
+  //   ["-100%", "0%"]
+  // );
+  // const topShadowValue4 = useTransform(
+  //   scrollYProgress4,
+  //   [0, 1],
+  //   ["-25%", "100%"]
+  // );
 
-  const bottomShadowValue5 = useTransform(
-    scrollYProgress5,
-    [0, 1],
-    ["-100%", "0%"]
-  );
-  const topShadowValue5 = useTransform(
-    scrollYProgress5,
-    [0, 1],
-    ["-25%", "100%"]
-  );
-  const imageValue = useTransform(scrollYProgress, [0, 1], ["-100%", "0%"]);
-  const imageValue2 = useTransform(scrollYProgress2, [0, 1], ["-100%", "0%"]);
-  const imageValue3 = useTransform(scrollYProgress3, [0, 1], ["-100%", "0%"]);
-  const imageValue4 = useTransform(scrollYProgress4, [0, 1], ["-100%", "0%"]);
-  const imageValue5 = useTransform(scrollYProgress5, [0, 1], ["-100%", "0%"]);
-  const shouldUseReducedMotion = useReducedMotion();
+  // const bottomShadowValue5 = useTransform(
+  //   scrollYProgress5,
+  //   [0, 1],
+  //   ["-100%", "0%"]
+  // );
+  // const topShadowValue5 = useTransform(
+  //   scrollYProgress5,
+  //   [0, 1],
+  //   ["-25%", "100%"]
+  // );
+  // const imageValue = useTransform(scrollYProgress, [0, 1], ["-100%", "0%"]);
+  // const imageValue2 = useTransform(scrollYProgress2, [0, 1], ["-100%", "0%"]);
+  // const imageValue3 = useTransform(scrollYProgress3, [0, 1], ["-100%", "0%"]);
+  // const imageValue4 = useTransform(scrollYProgress4, [0, 1], ["-100%", "0%"]);
+  // const imageValue5 = useTransform(scrollYProgress5, [0, 1], ["-100%", "0%"]);
+  // const shouldUseReducedMotion = useReducedMotion();
 
   return (
     <Box className="py-16 sm:py-28 2xl:py-36 px-4 md:px-12 flex flex-col items-center bg-gradientPrimary2 w-full">
       <Box className="max-w-[1440px] flex flex-col gap-10 sm:gap-16 items-center w-full">
         <p className="text-5xl sm:text-7xl font-medium w-full">Our Services</p>
-        <div
+        <Box className="grid grid-cols-1 lg:grid-cols-2 gap-12 sm:gap-20 w-full items-center">
+          <Box className={`flex flex-col gap-4 sm:gap-9 md:py-4`}>
+            {services?.map((serv, ind) => (
+              <Box key={ind} className={`flex flex-col gap-4`}>
+                <Box
+                  component={"button"}
+                  onClick={() => {
+                    setSelectedService(-1);
+                    setSelectedService(ind);
+                  }}
+                  className={`flex ${
+                    selectedService === ind && "gap-2 items-center"
+                  } duration-700 ease-in-out transition-all strathut-cursor ${
+                    selectedService !== ind && "hover:text-secondary"
+                  }`}
+                >
+                  <p
+                    className={`text-secondary text-2xl sm:text-4xl font-bold transition-all duration-700 ease-in-out ${
+                      selectedService === ind
+                        ? "inline-block opacity-1"
+                        : "opacity-0 hidden"
+                    }`}
+                  >{`0${ind + 1}`}</p>
+                  <p
+                    className={`font-semibold text-3xl sm:text-4xl lg:text-5xl 2xl:text-6xl transition-all duration-700 ease-in-out text-left ${
+                      selectedService === ind
+                        ? "text-secondary"
+                        : "text-textBody"
+                    }`}
+                  >
+                    {serv?.text}
+                  </p>
+                </Box>
+                <Collapse
+                  in={selectedService === ind}
+                  timeout={500}
+                  easing={"cubic-bezier(0.4, 0, 0.2, 1)"}
+                  className="flex flex-col gap-6"
+                >
+                  <div className="flex gap-4 flex-wrap">
+                    {serv?.tags?.map((tag, ind) => (
+                      <div
+                        key={ind}
+                        className="md:studyCard py-2 px-5 border border-white40 rounded-s-full rounded-e-full bg-transparent capitalize text-white hover:border-secondary hover:text-secondary"
+                      >
+                        {tag}
+                      </div>
+                    ))}
+                  </div>
+                  <p
+                    className={`text-lg transition-all duration-700 ease-in-out mt-5 ${
+                      selectedService === ind
+                        ? "block opacity-1"
+                        : "opacity-0 hidden"
+                    }`}
+                  >
+                    {serv?.description}
+                  </p>
+                  <Box
+                    className={`w-full h-fit mt-4 rounded-xl sm:rounded-3xl transition-all duration-700 flex lg:hidden items-center ease-in-out hover:border hover:border-white30 hover:p-2 hover:sm:p-8`}
+                  >
+                    <motion.div
+                      className="w-full h-[28rem] rounded-lg sm:rounded-2xl duration-500 hover:cursor-grabbing"
+                      style={{
+                        backgroundImage: `url(${services[selectedService]?.image})`,
+                        backgroundSize: "cover",
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "center",
+                      }}
+                      drag
+                      dragConstraints={{
+                        top: -10,
+                        right: 10,
+                        left: -10,
+                        bottom: 10,
+                      }}
+                      dragTransition={{
+                        bounceStiffness: 600,
+                        bounceDamping: 10,
+                      }}
+                    ></motion.div>
+                  </Box>
+                </Collapse>
+              </Box>
+            ))}
+          </Box>
+          <Box
+            className={`w-full h-full rounded-xl sm:rounded-3xl transition-all duration-700 hidden lg:flex items-center ease-in-out hover:border hover:border-white30 hover:p-2 hover:sm:p-8`}
+          >
+            <motion.div
+              className="w-full h-full min-h-[28rem] md:min-h-[42rem] rounded-lg sm:rounded-2xl duration-500 hover:cursor-grabbing"
+              style={{
+                backgroundImage: `url(${services[selectedService]?.image})`,
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+              }}
+              drag
+              dragConstraints={{
+                top: -10,
+                right: 10,
+                left: -10,
+                bottom: 10,
+              }}
+              dragTransition={{ bounceStiffness: 600, bounceDamping: 10 }}
+            ></motion.div>
+          </Box>
+        </Box>
+        {/* <div
           className="grid grid-cols-1 lg:grid-cols-2 gap-2 sm:gap-4 lg:gap-16 items-center min-h-screen overflow-hidden"
           ref={containerRef}
           style={{ margin: "20vh auto" }}
@@ -531,7 +641,7 @@ const Services = () => {
               )}
             </motion.div>
           </div>
-        </div>
+        </div> */}
         <Box className="flex flex-col w-full mt-24">
           <Box className="w-full">
             <img src={quote} alt="Quote" width={"30rem"} height={"auto"} />
